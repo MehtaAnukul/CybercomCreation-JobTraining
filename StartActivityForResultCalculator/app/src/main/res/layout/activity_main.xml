@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorLight">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator"
+        android:textAlignment="center"
+        android:padding="50dp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <Button
+            android:id="@+id/activity_main_addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:layout_margin="10dp"/>
+        <Button
+            android:id="@+id/activity_main_subBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sub"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@id/activity_main_addBtn"/>
+        <Button
+            android:id="@+id/activity_main_mulBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mul"
+            android:layout_margin="10dp"
+            android:layout_below="@id/activity_main_addBtn"/>
+        <Button
+            android:id="@+id/activity_main_divBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/div"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@id/activity_main_addBtn"
+            android:layout_below="@id/activity_main_subBtn"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/activity_main_answerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Answer"
+        android:padding="30dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

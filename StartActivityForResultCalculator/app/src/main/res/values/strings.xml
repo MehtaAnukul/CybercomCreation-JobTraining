@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StartActivityForResultCalculator</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="mul">*</string>
+    <string name="div">/</string>
+    <string name="calculator">Mini Calculator</string>
+    <string name="Answer">Answer</string>
+    <string name="valueOne">ValueOne</string>
+    <string name="valueSec">ValueSec</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+</resources>
