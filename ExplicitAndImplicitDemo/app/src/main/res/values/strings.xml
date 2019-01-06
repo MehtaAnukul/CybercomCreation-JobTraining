@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExplicitAndImplicitDemo</string>
+    <string name="sharePost">Share Post</string>
+    <string name="SendMail">Send Mail</string>
+    <string name="sharePostMsg">Share Post Here</string>
+    <string name="SendMailMsg">Send Mail From Here</string>
+</resources>
