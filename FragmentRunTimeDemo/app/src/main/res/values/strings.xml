@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FragmentRunTimeDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home Fragment</string>
+    <string name="openFirst">Open First Fragment</string>
+    <string name="second">Second Fragment</string>
+    <string name="first">First Fragments</string>
+    <string name="openSecond">Open Second Fragment</string>
+
+
+</resources>
