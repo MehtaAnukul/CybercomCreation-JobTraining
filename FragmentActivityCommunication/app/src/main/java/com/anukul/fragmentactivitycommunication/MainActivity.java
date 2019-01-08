@@ -5,10 +5,12 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MessageReadListener{
     public static android.support.v4.app.FragmentManager fragmentManager;
     private FrameLayout nameFrameLayout;
+    private TextView nameTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         nameFrameLayout = findViewById(R.id.activity_main_nameFramelayout);
+        nameTv = findViewById(R.id.activity_main_nameTv);
 
         if (nameFrameLayout != null){
             if(savedInstanceState != null){
@@ -31,5 +34,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public void onMessageRead(String message) {
+
+        nameTv.setText(message);
     }
 }
