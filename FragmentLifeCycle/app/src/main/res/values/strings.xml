@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FragmentLifeCycle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first">First Fragment</string>
+    <string name="second">Second Fragment</string>
+    <string name="OpenSecond">Open Second Fragment</string>
+</resources>

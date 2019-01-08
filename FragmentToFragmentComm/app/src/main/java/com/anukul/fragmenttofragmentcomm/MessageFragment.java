@@ -1,12 +1,13 @@
-package com.anukul.fragmentactivitycommunication;
+package com.anukul.fragmenttofragmentcomm;
 
 
-import android.app.Activity;
-import android.content.Context;
+import android.nfc.tech.NfcA;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,9 @@ import android.widget.EditText;
  */
 public class MessageFragment extends Fragment {
 
+
     private EditText nameEd;
     private Button sendBtn;
-
-    private MessageReadListener messageReadListener;
 
     public MessageFragment() {
         // Required empty public constructor
@@ -33,9 +33,8 @@ public class MessageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_message, container, false);
+        View view =  inflater.inflate(R.layout.fragment_message, container, false);
         return view;
-
     }
 
     @Override
@@ -48,25 +47,22 @@ public class MessageFragment extends Fragment {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = nameEd.getText().toString().trim();
+                final String name = nameEd.getText().toString().trim();
+                Bundle bundle = new Bundle();
+                bundle.putString(AppConstent.KEY_NAME,name);
 
-                messageReadListener.onMessageRead(name);
+                DisplayFragment displayFragment = new DisplayFragment();
+                displayFragment.setArguments(bundle);
+
+                FragmentManager fragmentManager = getFragmentManager();
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_main_relativeContanier,displayFragment,MessageFragment.class.getSimpleName());
+                fragmentTransaction.addToBackStack(MessageFragment.class.getSimpleName());
+                fragmentTransaction.commit();
+
+
             }
         });
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        Activity activity = (Activity) context;
-
-        try {
-            messageReadListener = (MessageReadListener) activity;
-
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + "must override message");
-
-        }
     }
 }
