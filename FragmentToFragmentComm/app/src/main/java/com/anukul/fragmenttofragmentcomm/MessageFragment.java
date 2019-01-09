@@ -63,6 +63,15 @@ public class MessageFragment extends Fragment {
 
 
             }
+
+
         });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        nameEd.setText("");
     }
 }

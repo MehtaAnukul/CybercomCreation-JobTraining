@@ -37,5 +37,4 @@ public class DisplayFragment extends Fragment {
     }
 
 
-
 }

@@ -1,15 +1,15 @@
 package com.anukul.fragmentruntimedemo;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static android.support.v4.app.FragmentManager fragmentManager;
+    public static FragmentManager fragmentManager;
     private FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             HomeFragment homeFragment = new HomeFragment();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.activty_main_framelayout,homeFragment,null);
             fragmentTransaction.commit();
         }

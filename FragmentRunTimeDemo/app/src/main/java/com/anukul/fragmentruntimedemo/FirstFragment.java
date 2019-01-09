@@ -33,7 +33,8 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 SecondFragment secondFragment = new SecondFragment();
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.activty_main_framelayout,secondFragment,null).addToBackStack(null).commit();
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.activty_main_framelayout,secondFragment,null)
+                        .addToBackStack(null).commit();
             }
         });
         return view;
