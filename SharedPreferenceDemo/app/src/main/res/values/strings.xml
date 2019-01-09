@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SharedPreferenceDemo</string>
+    <string name="name">Enter Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome User</string>
+    <string name="LogOut">Logout</string>
+
+
+    <string name="user_name">anukul</string>
+    <string name="user_password">anukul</string>
+
+    <string name="login_preference">com.anukul.sharedpreferencedemo_login_preference</string>
+    <string name="login_status_preference">com.anukul.sharedpreferencedemo_login_status_preference</string>
+</resources>
