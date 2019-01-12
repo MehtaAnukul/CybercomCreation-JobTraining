@@ -19,14 +19,14 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
+        sharedPreferenceConfig = new SharedPreferenceConfig(WelcomeActivity.this);
 
         intent = getIntent();
 
         welcomeUserTv = findViewById(R.id.activity_welcome_welcomeTv);
         logoutBtn = findViewById(R.id.activity_welcome_logoutBtn);
 
-        final String name = getResources().getString(R.string.user_name);
+        final String name = AppConstent.KEY_USER_NAME;
         welcomeUserTv.setText("Welcome "+name);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {

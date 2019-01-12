@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SQLiteDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Add Contact</string>
+    <string name="view">View Contact</string>
+    <string name="update">Update Contact</string>
+    <string name="delete">Delete Contact</string>
+    <string name="addNewContact">Add New Contact</string>
+    <string name="contactID">Contact ID</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="save">SAVE</string>
+</resources>

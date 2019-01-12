@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private SharedPreferenceConfig sharedPreferenceConfig;
 
@@ -15,11 +17,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText passwordEd;
     private Button loginBtn;
 
+    private String systemUserName = AppConstent.KEY_USER_NAME;
+    private String systemPassword = AppConstent.KEY_USER_PASSWORD;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Stetho.initializeWithDefaults(this);
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
         initView();
@@ -50,8 +57,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void loginProcess() {
-        final String systemUserName = getResources().getString(R.string.user_name);
-        final String systemPassword = getResources().getString(R.string.user_password);
+        //final String systemUserName = getResources().getString(R.string.user_name);
+       // final String systemPassword = getResources().getString(R.string.user_password);
 
         final String name = nameEd.getText().toString().trim();
         final String password = passwordEd.getText().toString().trim();
