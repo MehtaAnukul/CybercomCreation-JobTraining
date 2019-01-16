@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.anukul.sqlitedemo.app.ContactDbConstant;
+import com.anukul.sqlitedemo.model.ContactModel;
+
 import java.util.ArrayList;
 
 public class ContactDbHelper extends SQLiteOpenHelper {

@@ -1,4 +1,4 @@
-package com.anukul.sqlitedemo;
+package com.anukul.sqlitedemo.fragment;
 
 
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.anukul.sqlitedemo.ContactDbHelper;
+import com.anukul.sqlitedemo.model.ContactModel;
+import com.anukul.sqlitedemo.R;
 
 
 /**

@@ -1,12 +1,19 @@
-package com.anukul.sqlitedemo;
+package com.anukul.sqlitedemo.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity implements OnDbOprationListener{
+import com.anukul.sqlitedemo.fragment.AddContactFragment;
+import com.anukul.sqlitedemo.fragment.DeleteContactFragment;
+import com.anukul.sqlitedemo.fragment.HomeFragment;
+import com.anukul.sqlitedemo.listener.OnDbOprationListener;
+import com.anukul.sqlitedemo.R;
+import com.anukul.sqlitedemo.fragment.ReadContactsFragment;
+import com.anukul.sqlitedemo.fragment.UpdateFragment;
+
+public class MainActivity extends AppCompatActivity implements OnDbOprationListener {
     private FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.anukul.sqlitedemo;
+package com.anukul.sqlitedemo.app;
 
 public class ContactDbConstant {
     public static final String DATABASE_NAME = "contact.db";

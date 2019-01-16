@@ -1,4 +1,4 @@
-package com.anukul.sqlitedemo;
+package com.anukul.sqlitedemo.model;
 
 public class ContactModel {
     private int id;

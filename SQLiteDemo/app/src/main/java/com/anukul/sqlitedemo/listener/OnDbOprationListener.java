@@ -1,4 +1,4 @@
-package com.anukul.sqlitedemo;
+package com.anukul.sqlitedemo.listener;
 
 public interface OnDbOprationListener {
 
