@@ -5,16 +5,16 @@ public class ContactDbConstant {
     public static final int DATABASE_VERSION = 1;
 
     public static final String CONTACT_TABALE_NAME = "contact_info";
-    public static final String CONTACT_ID = "contact_id";
-    public static final String NAME = "name";
-    public static final String EMAIL = "email";
+    public static final String CONTACT_COLUMN_ID = "contact_id";
+    public static final String CONTACT_COLUMN_NAME = "name";
+    public static final String CONTACT_COLUMN_EMAIL = "email";
 
     public static final String CREATE_CONTACT_TABLE =
-            "CREATE TABLE" +CONTACT_TABALE_NAME+ "("
-            +CONTACT_ID+ "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +NAME+ "TEXT,"
-            +EMAIL+ "TEXT"
-            +")";
+            "CREATE TABLE " + CONTACT_TABALE_NAME + "("
+            + CONTACT_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + CONTACT_COLUMN_NAME + " TEXT,"
+            + CONTACT_COLUMN_EMAIL + " TEXT"
+            + ")";
 
 //CREATE TABLE TABLENAME ( COLUMN_NAME TYPE , COLUMN_NAME TYPE);
 }

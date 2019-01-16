@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -55,17 +56,25 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fragment_addContact_saveBtn:
-                String conteactId = contactIdEd.getText().toString().trim();
-                String name = nameEd.getText().toString().trim();
-                String email = emailEd.getText().toString().trim();
-
-                ContactModel contactModel = new ContactModel();
-                ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
-                sqLiteDatabase = contactDbHelper.getWritableDatabase();
-                
-
-
+                insertContact();
                 break;
         }
+    }
+
+    private void insertContact() {
+        int conteactId = Integer.parseInt(contactIdEd.getText().toString().trim());
+        String name = nameEd.getText().toString().trim();
+        String email = emailEd.getText().toString().trim();
+
+        ContactModel contactModel = new ContactModel();
+        ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
+        sqLiteDatabase = contactDbHelper.getWritableDatabase();
+        contactDbHelper.insertContact(new ContactModel(conteactId,name,email),sqLiteDatabase);
+        contactDbHelper.close();
+        contactIdEd.setText("");
+        nameEd.setText("");
+        emailEd.setText("");
+        Toast.makeText(getActivity(),  "Contact saved sucessfully", Toast.LENGTH_SHORT).show();
+
     }
 }

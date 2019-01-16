@@ -59,11 +59,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 onDbOprationListener.dbOpPerformed(0);
                 break;
             case R.id.fragment_home_viewContactBtn:
-
+                onDbOprationListener.dbOpPerformed(1);
                 break;
             case R.id.fragment_home_updateContactBtn:
+                onDbOprationListener.dbOpPerformed(2);
                 break;
             case R.id.fragment_home_deleteContactBtn:
+                onDbOprationListener.dbOpPerformed(3);
                 break;
         }
     }

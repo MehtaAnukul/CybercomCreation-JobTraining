@@ -12,4 +12,9 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="save">SAVE</string>
+    <string name="helloworld">Hello World....</string>
+    <string name="updateContact">Update Contact</string>
+    <string name="Update">Update</string>
+    <string name="deleteContact">Delete Contact</string>
+    <string name="deletebtn">Delete</string>
 </resources>
