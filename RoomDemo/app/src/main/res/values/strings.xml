@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RoomDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addUser">Add User</string>
+    <string name="viewUser">View User</string>
+    <string name="updateUser">Update User</string>
+    <string name="deleteUser">Delete User</string>
+    <string name="userId">User Id</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="anukul">Anukul</string>
+    <string name="update">Update</string>
+</resources>

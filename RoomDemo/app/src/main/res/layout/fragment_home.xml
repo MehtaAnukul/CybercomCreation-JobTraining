@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/fragment_home_addUserBtn"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:text="@string/addUser"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_home_viewUserBtn"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:text="@string/viewUser"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_home_updateUserBtn"
+            android:layout_width="225dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/updateUser"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_home_deleteUserBtn"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteUser"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>
