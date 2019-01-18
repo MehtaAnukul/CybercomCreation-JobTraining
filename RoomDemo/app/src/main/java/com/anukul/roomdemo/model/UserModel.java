@@ -1,4 +1,4 @@
-package com.anukul.roomdemo;
+package com.anukul.roomdemo.model;
 
 
 import android.arch.persistence.room.ColumnInfo;

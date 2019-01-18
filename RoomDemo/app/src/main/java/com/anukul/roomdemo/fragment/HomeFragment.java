@@ -1,4 +1,4 @@
-package com.anukul.roomdemo;
+package com.anukul.roomdemo.fragment;
 
 
 import android.os.Bundle;
@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Switch;
+
+import com.anukul.roomdemo.activity.MainActivity;
+import com.anukul.roomdemo.R;
 
 
 /**

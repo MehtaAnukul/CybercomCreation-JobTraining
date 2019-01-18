@@ -1,10 +1,14 @@
-package com.anukul.roomdemo;
+package com.anukul.roomdemo.activity;
 
 import android.arch.persistence.room.Room;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.anukul.roomdemo.MyAppDatabase;
+import com.anukul.roomdemo.R;
+import com.anukul.roomdemo.fragment.HomeFragment;
 
 public class MainActivity extends AppCompatActivity  {
     private FragmentManager fragmentManager;

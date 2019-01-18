@@ -1,4 +1,4 @@
-package com.anukul.roomdemo;
+package com.anukul.roomdemo.fragment;
 
 
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.anukul.roomdemo.activity.MainActivity;
+import com.anukul.roomdemo.R;
+import com.anukul.roomdemo.model.UserModel;
 
 
 /**

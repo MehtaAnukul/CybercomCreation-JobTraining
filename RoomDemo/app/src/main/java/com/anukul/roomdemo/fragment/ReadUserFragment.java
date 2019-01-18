@@ -1,4 +1,4 @@
-package com.anukul.roomdemo;
+package com.anukul.roomdemo.fragment;
 
 
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.anukul.roomdemo.activity.MainActivity;
+import com.anukul.roomdemo.R;
+import com.anukul.roomdemo.model.UserModel;
 
 import java.util.List;
 
