@@ -1,6 +1,7 @@
 package com.anukul.sqlitedemo.fragment;
 
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.anukul.sqlitedemo.ContactDbHelper;
+import com.anukul.sqlitedemo.app.ContactDbConstant;
 import com.anukul.sqlitedemo.model.ContactModel;
 import com.anukul.sqlitedemo.R;
 
@@ -43,16 +45,19 @@ public class ReadContactsFragment extends Fragment {
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-        contactDbHelper.getAllUser();
+        Cursor cursor = contactDbHelper.readContact(sqLiteDatabase);
 
-
-        ContactModel contactModel = new ContactModel();
+        //ContactModel contactModel = new ContactModel();
         String info = "";
-        int id = contactModel.getId();
-        String name = contactModel.getName();
-        String email = contactModel.getEmail();
 
-        info = info+"\n\n"+id+"\nName : "+name+"\nEmail : "+email;
+        while (cursor.moveToNext()){
+            String id =  Integer.toString(cursor.getInt(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_ID)));
+            String name = cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_NAME));
+            String email = cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_EMAIL));
+
+            info = info+"\n\n"+id+"\nName : "+name+"\nEmail : "+email;
+
+        }
         helloTv.setText(info);
         contactDbHelper.close();
     }
