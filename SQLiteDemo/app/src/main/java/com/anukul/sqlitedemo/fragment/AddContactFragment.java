@@ -70,7 +70,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
         String name = nameEd.getText().toString().trim();
         String email = emailEd.getText().toString().trim();
 
-        ContactModel contactModel = new ContactModel();
+       // ContactModel contactModel = new ContactModel();
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         sqLiteDatabase = contactDbHelper.getWritableDatabase();
         contactDbHelper.insertContact(new ContactModel(conteactId,name,email),sqLiteDatabase);

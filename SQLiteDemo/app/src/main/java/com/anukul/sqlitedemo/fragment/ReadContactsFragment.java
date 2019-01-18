@@ -43,7 +43,7 @@ public class ReadContactsFragment extends Fragment {
 
     private void readContact() {
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
-        sqLiteDatabase = contactDbHelper.getWritableDatabase();
+        sqLiteDatabase = contactDbHelper.getReadableDatabase();
 
         Cursor cursor = contactDbHelper.readContact(sqLiteDatabase);
 
@@ -55,7 +55,9 @@ public class ReadContactsFragment extends Fragment {
             String name = cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_NAME));
             String email = cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_EMAIL));
 
-            info = info+"\n\n"+id+"\nName : "+name+"\nEmail : "+email;
+            info = info + "\n\n" +id+
+                    "\nName : " +name+
+                    "\nEmail : " +email;
 
         }
         helloTv.setText(info);
