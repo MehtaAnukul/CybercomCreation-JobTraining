@@ -26,4 +26,6 @@ public class MainActivity extends AppCompatActivity  {
         fragmentTransaction.add(R.id.activtiy_main_framelayout_fragmentContainer,homeFragment,MainActivity.class.getSimpleName());
         fragmentTransaction.commit();
     }
+
+
 }

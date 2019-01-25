@@ -47,14 +47,17 @@ public class ContactDbHelper extends SQLiteOpenHelper {
        // Log.d("Database Operations","One row inserted Created");
 
     }
-    public Cursor readContact(SQLiteDatabase sqLiteDatabase){
+
+    //read data
+   /* public Cursor readContact(SQLiteDatabase sqLiteDatabase){
         String projection[] = {ContactDbConstant.CONTACT_COLUMN_ID,ContactDbConstant.CONTACT_COLUMN_NAME,ContactDbConstant.CONTACT_COLUMN_EMAIL};
 
         Cursor cursor = sqLiteDatabase.query(ContactDbConstant.CONTACT_TABALE_NAME,projection,null,null,null,null,null);
 
         return cursor;
-    }
+    }*/
 
+   //read data
     public ArrayList<ContactModel> getAllUser() {
 
         ArrayList<ContactModel> contactModelArrayList = new ArrayList<>();

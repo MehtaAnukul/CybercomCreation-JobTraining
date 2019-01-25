@@ -17,6 +17,8 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:padding="25dp"/>
         <EditText
+            android:visibility="gone"
+
             android:id="@+id/fragment_addContact_contactIdEd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AppBarActionAndToolbarDemo</string>
+    <string name="share">Share</string>
+    <string name="setting">Setting</string>
+    <string name="first">First Activity</string>
+    <string name="openSecond">Start Second Activity</string>
+    <string name="openThird">Start Third Activity</string>
+    <string name="second">Second Activity</string>
+    <string name="third">Third Activity</string>
+</resources>
