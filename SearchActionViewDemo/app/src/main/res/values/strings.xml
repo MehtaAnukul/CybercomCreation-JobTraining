@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SearchActionViewDemo</string>
+    <string name="search">Search</string>
+    <string name="statesOfIndia">States Of India</string>
+</resources>
