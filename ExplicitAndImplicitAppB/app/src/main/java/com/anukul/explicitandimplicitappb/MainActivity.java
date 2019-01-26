@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         sendBtn = findViewById(R.id.activity_main_sendBtn);
 
-        sendBtn.setOnClickListener(new View.OnClickListener() {
+        sendBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
