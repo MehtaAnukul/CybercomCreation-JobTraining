@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NotificationDemo</string>
+    <string name="notification">Display Notification</string>
+    <string name="lending">Landing Activity</string>
+    <string name="yes">Yes Activity</string>
+    <string name="no">No Activity</string>
+    <string name="remoteMsg">Remote Message Here</string>
+</resources>
