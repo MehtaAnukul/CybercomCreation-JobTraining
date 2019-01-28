@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">NotificationProgressbarDemo</string>
     <string name="notification">Display Notification ProgressBar</string>
+    <string name="notificationImg">Notification Image</string>
+    <string name="notificationLongText">Notification LongText</string>
+
+    <string name="notificationtext">A notification is a message you can display to the user outside of your applications normal UI.
+        When you tell the system to issue a notification,
+        it first appears as an icon in the notification area.
+        To see the details of the notification,
+        the user opens the notification drawer </string>
 </resources>

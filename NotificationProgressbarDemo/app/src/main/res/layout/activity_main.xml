@@ -13,4 +13,22 @@
         android:layout_centerInParent="true"
         android:text="@string/notification"/>
 
+    <Button
+        android:id="@+id/activity_main_notificationImgBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/notificationImg"
+        android:layout_below="@id/activitiy_main_notificationProgressBtn"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/activity_main_notificationLongTextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/notificationLongText"
+        android:layout_below="@id/activity_main_notificationImgBtn"
+        android:layout_marginTop="15dp"/>
+
 </RelativeLayout>
