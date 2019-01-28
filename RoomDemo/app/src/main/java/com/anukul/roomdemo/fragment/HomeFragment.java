@@ -78,32 +78,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private void deleteUser() {
         DeleteUserFragment deleteUserFragment = new DeleteUserFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,deleteUserFragment,MainActivity.class.getSimpleName());
-        fragmentTransaction.addToBackStack(MainActivity.class.getSimpleName());
+        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,deleteUserFragment,DeleteUserFragment.class.getSimpleName());
+        fragmentTransaction.addToBackStack(DeleteUserFragment.class.getSimpleName());
+        fragmentTransaction.hide(HomeFragment.this);
         fragmentTransaction.commit();
     }
 
     private void updateUser() {
         UpdateFragment updateFragment = new UpdateFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,updateFragment,MainActivity.class.getSimpleName());
-        fragmentTransaction.addToBackStack(MainActivity.class.getSimpleName());
+        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,updateFragment,UpdateFragment.class.getSimpleName());
+        fragmentTransaction.addToBackStack(UpdateFragment.class.getSimpleName());
+        fragmentTransaction.hide(HomeFragment.this);
         fragmentTransaction.commit();
     }
 
     private void viewUser()  {
         ReadUserFragment readUserFragment = new ReadUserFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,readUserFragment,MainActivity.class.getSimpleName());
-        fragmentTransaction.addToBackStack(MainActivity.class.getSimpleName());
+        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,readUserFragment,ReadUserFragment.class.getSimpleName());
+        fragmentTransaction.addToBackStack(ReadUserFragment.class.getSimpleName());
+        fragmentTransaction.hide(HomeFragment.this);
         fragmentTransaction.commit();
     }
 
     private void addUser()  {
         AddUserFragment addUserFragment = new AddUserFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,addUserFragment,MainActivity.class.getSimpleName());
-        fragmentTransaction.addToBackStack(MainActivity.class.getSimpleName());
+        fragmentTransaction.replace(R.id.activtiy_main_framelayout_fragmentContainer,addUserFragment,AddUserFragment.class.getSimpleName());
+        fragmentTransaction.addToBackStack(AddUserFragment.class.getSimpleName());
+        fragmentTransaction.hide(HomeFragment.this);
         fragmentTransaction.commit();
     }
 }

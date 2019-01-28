@@ -8,6 +8,7 @@ import android.arch.persistence.room.Update;
 
 import com.anukul.roomdemo.model.UserModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao

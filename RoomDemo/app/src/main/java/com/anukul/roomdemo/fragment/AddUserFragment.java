@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.anukul.roomdemo.activity.MainActivity;
 import com.anukul.roomdemo.R;
+import com.anukul.roomdemo.activity.MainActivity;
 import com.anukul.roomdemo.model.UserModel;
 
 
@@ -36,7 +36,7 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_add_user, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_user, container, false);
         return view;
     }
 
@@ -54,7 +54,7 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fragment_addUser_saveBtn:
                 insertUserDetails();
                 break;
@@ -66,18 +66,19 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
         String name = userNameEd.getText().toString().trim();
         String email = userEmailEd.getText().toString().trim();
 
-        UserModel userModel = new UserModel();
-        userModel.setId(id);
-        userModel.setName(name);
-        userModel.setEmail(email);
+        for (int i = 0; i < 500; i++) {
+            UserModel userModel = new UserModel();
+            userModel.setId(id + i);
+            userModel.setName(name + i);
+            userModel.setEmail(email + i);
+            MainActivity.myAppDatabase.mydataAccessObject().addUser(userModel);
+        }
 
-        MainActivity.myAppDatabase.mydataAccessObject().addUser(userModel);
         Toast.makeText(getContext(), "User added Successfully", Toast.LENGTH_SHORT).show();
 
         userIdEd.setText("");
         userNameEd.setText("");
         userEmailEd.setText("");
-
 
 
     }

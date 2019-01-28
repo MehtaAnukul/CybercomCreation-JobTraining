@@ -14,14 +14,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.anukul.sqlitedemo.ContactDbHelper;
-import com.anukul.sqlitedemo.model.ContactModel;
 import com.anukul.sqlitedemo.R;
+import com.anukul.sqlitedemo.model.ContactModel;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddContactFragment extends Fragment implements View.OnClickListener{
+public class AddContactFragment extends Fragment implements View.OnClickListener {
 
     private EditText contactIdEd;
     private EditText nameEd;
@@ -39,7 +39,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_add_contact, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_contact, container, false);
         return view;
     }
 
@@ -58,7 +58,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fragment_addContact_saveBtn:
                 insertContact();
                 break;
@@ -70,15 +70,20 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
         String name = nameEd.getText().toString().trim();
         String email = emailEd.getText().toString().trim();
 
-       // ContactModel contactModel = new ContactModel();
+        // ContactModel contactModel = new ContactModel();
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         sqLiteDatabase = contactDbHelper.getWritableDatabase();
-        contactDbHelper.insertContact(new ContactModel(name,email),sqLiteDatabase);
+
+        for (int i = 0; i < 500; i++) {
+
+            contactDbHelper.insertContact(new ContactModel(name + i, email + i), sqLiteDatabase);
+        }
+
         contactDbHelper.close();
         contactIdEd.setText("");
         nameEd.setText("");
         emailEd.setText("");
-        Toast.makeText(getActivity(),  "Contact saved sucessfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Contact saved sucessfully", Toast.LENGTH_SHORT).show();
 
     }
 }

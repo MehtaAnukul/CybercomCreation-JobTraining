@@ -3,23 +3,28 @@ package com.anukul.roomdemo.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.anukul.roomdemo.activity.MainActivity;
 import com.anukul.roomdemo.R;
+import com.anukul.roomdemo.ReadUserAdapter;
+import com.anukul.roomdemo.activity.MainActivity;
 import com.anukul.roomdemo.model.UserModel;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ReadUserFragment extends Fragment {
-    private TextView displayTv;
+    // private TextView displayTv;
+    private RecyclerView customReadUserRecyclerView;
+    private ArrayList<UserModel> userModelArrayList;
+    private ReadUserAdapter readUserAdapter;
 
     public ReadUserFragment() {
         // Required empty public constructor
@@ -30,22 +35,29 @@ public class ReadUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_read_user, container, false);
-        displayTv = view.findViewById(R.id.fragment_readUser_displayTv);
+        //displayTv = view.findViewById(R.id.fragment_readUser_displayTv);
 
-        List<UserModel> userModels = MainActivity.myAppDatabase.mydataAccessObject().getUsers();
+        customReadUserRecyclerView = view.findViewById(R.id.fragment_readUser_recyclerView);
+
+        userModelArrayList = (ArrayList<UserModel>) MainActivity.myAppDatabase.mydataAccessObject().getUsers();
         String info = "";
 
-        for (UserModel userModel : userModels) {
-            int id = userModel.getId();
-            String name = userModel.getName();
-            String email = userModel.getEmail();
-
-            info = info + "\n\n" +
-                    "Id :" + id + "\n" +
-                    "Name :" + name + "\n" +
-                    "Email :" + email;
-        }
-        displayTv.setText(info);
+        readUserAdapter = new ReadUserAdapter(userModelArrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        customReadUserRecyclerView.setLayoutManager(layoutManager);
+        customReadUserRecyclerView.setAdapter(readUserAdapter);
+//
+//        for (UserModel userModel : userModels) {
+//            int id = userModel.getId();
+//            String name = userModel.getName();
+//            String email = userModel.getEmail();
+//
+//            info = info + "\n\n" +
+//                    "Id :" + id + "\n" +
+//                    "Name :" + name + "\n" +
+//                    "Email :" + email;
+//        }
+        //displayTv.setText(info);
 
         return view;
     }
