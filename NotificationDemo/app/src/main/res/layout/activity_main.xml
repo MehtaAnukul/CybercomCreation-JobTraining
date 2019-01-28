@@ -12,4 +12,14 @@
        android:layout_height="wrap_content"
        android:layout_centerInParent="true"
        android:text="@string/notification"/>
+   <Button
+       android:id="@+id/activity_main_progressbarNotificationBtn"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:text="@string/notificationProgress"
+       android:layout_below="@id/activitiy_main_notificationBtn"
+       android:layout_margin="10dp"/>
+
+
 </RelativeLayout>

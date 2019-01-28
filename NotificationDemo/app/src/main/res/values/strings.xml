@@ -5,4 +5,5 @@
     <string name="yes">Yes Activity</string>
     <string name="no">No Activity</string>
     <string name="remoteMsg">Remote Message Here</string>
+    <string name="notificationProgress">Display Notification ProgressBar</string>
 </resources>

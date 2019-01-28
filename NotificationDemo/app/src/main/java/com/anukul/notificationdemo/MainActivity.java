@@ -15,6 +15,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button notificationBtn;
+    private Button progressNotificationBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         notificationBtn = findViewById(R.id.activitiy_main_notificationBtn);
+        progressNotificationBtn = findViewById(R.id.activity_main_progressbarNotificationBtn);
 
         notificationBtn.setOnClickListener(this);
-
+        progressNotificationBtn.setOnClickListener(this);
     }
 
     @Override
@@ -33,8 +35,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.activitiy_main_notificationBtn:
                 showNotificationOnStatusBar();
                 break;
+            case R.id.activity_main_progressbarNotificationBtn:
+                showProgressBarNotification();
+                break;
         }
     }
+
+    private void showProgressBarNotification() {
+        createNotificationChannel();
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNET_ID);
+        builder.setSmallIcon(R.drawable.ic_download);
+        builder.setContentTitle("Image Download");
+        builder.setContentText("Download in Progress");
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        final NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        final int max_progress = 100;
+        int current_progress = 0;
+        builder.setProgress(max_progress,current_progress,true);
+
+        notificationManagerCompat.notify(AppConstant.KAY_NOTIFICATION_ID,builder.build());
+
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                int count = 0;
+
+                try {
+                    while (count <= 100){
+                        count = count + 10;
+                        sleep(1000);
+                        //builder.setProgress(max_progress,count,false);
+                        //notificationManagerCompat.notify(AppConstant.KAY_NOTIFICATION_ID,builder.build());
+
+                    }
+                    builder.setContentText("Download Compleate");
+                    builder.setProgress(0,0,false);
+                    notificationManagerCompat.notify(AppConstant.KAY_NOTIFICATION_ID,builder.build());
+
+                }catch (InterruptedException e){ }
+            }
+        };
+        thread.start();
+    }
+
     //dispalyNotification 8.0 and above so required CHANNEL_ID or register Channel_Id
     // it's work in 7.0 api and lower version
     //In android version lower than 8.0 varsion we can set priority using setPriority

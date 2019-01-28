@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NotificationProgressbarDemo</string>
+    <string name="notification">Display Notification ProgressBar</string>
+</resources>
