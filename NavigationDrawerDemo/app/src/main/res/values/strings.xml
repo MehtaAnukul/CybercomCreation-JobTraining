@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NavigationDrawerDemo</string>
+    <string name="header">Header title</string>
+</resources>
