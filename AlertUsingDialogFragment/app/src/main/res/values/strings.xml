@@ -3,6 +3,7 @@
     <string name="alertDialog">FireMissile AlertDialog</string>
     <string name="colorAlert">Color AlertDialog</string>
     <string name="car">Car Checkbox AlertDialog</string>
+    <string name="gender">Gender Radio AlertDialog</string>
 
     <string-array name="color">
         <item>Red</item>
@@ -15,6 +16,11 @@
         <item>Lamborghini</item>
         <item>Audi</item>
         <item>Ford</item>
+    </string-array>
 
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
     </string-array>
 </resources>

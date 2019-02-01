@@ -5,27 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_centerInParent="true">
     <Button
         android:id="@+id/activity_main_fireMissileAlertBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/alertDialog"
-        android:layout_centerInParent="true"/>
+        android:text="@string/alertDialog" />
     <Button
         android:id="@+id/activity_main_colorAlertBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/colorAlert"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/activity_main_fireMissileAlertBtn"/>
+        android:text="@string/colorAlert" />
 
     <Button
         android:id="@+id/activity_main_carAlertBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/car"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/activity_main_colorAlertBtn"
-        />
+        android:text="@string/car" />
+
+    <Button
+        android:id="@+id/activity_main_genderAlertBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"/>
+</LinearLayout>
+
 </RelativeLayout>
