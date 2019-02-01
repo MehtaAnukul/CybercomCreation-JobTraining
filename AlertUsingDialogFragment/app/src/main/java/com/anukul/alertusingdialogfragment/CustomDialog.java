@@ -17,7 +17,7 @@ public class CustomDialog extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setView(LayoutInflater.from(getActivity()).inflate(R.layout.custom_layout,null));
+        builder.setView(LayoutInflater.from(getActivity()).inflate(R.layout.custom_layout, null));
 
         builder.setPositiveButton("Sign In", new DialogInterface.OnClickListener() {
             @Override

@@ -8,18 +8,20 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:scaleType="fitXY"
-        android:src="@drawable/sydney_airport"/>
+        android:src="@drawable/sydney_airport" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name"
-        android:textAlignment="center"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:textAlignment="center" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
-        android:textAlignment="center"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:textAlignment="center" />
 
 </LinearLayout>

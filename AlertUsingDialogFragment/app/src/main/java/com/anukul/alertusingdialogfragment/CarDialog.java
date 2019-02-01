@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class CarDialog extends DialogFragment {
 
     private ArrayList<String> carSelectedArrayList;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -26,11 +27,11 @@ public class CarDialog extends DialogFragment {
         builder.setMultiChoiceItems(R.array.car, null, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i, boolean isChecked) {
-                String carItem[]  = getActivity().getResources().getStringArray(R.array.car);
+                String carItem[] = getActivity().getResources().getStringArray(R.array.car);
 
-                if(isChecked){
+                if (isChecked) {
                     carSelectedArrayList.add(carItem[i]);
-                }else if(carSelectedArrayList.contains(carItem[i])){
+                } else if (carSelectedArrayList.contains(carItem[i])) {
                     carSelectedArrayList.remove(carItem[i]);
                 }
             }
@@ -42,12 +43,12 @@ public class CarDialog extends DialogFragment {
                 String final_selection = " ";
 
                 for (int item = 0; item < carSelectedArrayList.size(); item++) {
-                    final_selection = final_selection +"\n"+carSelectedArrayList.get(item);
+                    final_selection = final_selection + "\n" + carSelectedArrayList.get(item);
                 }
                 /*for (String item : carSelectedArrayList) {
                     final_selection = final_selection+"\n"+item;
                 }*/
-                Toast.makeText(getActivity(), "Selected :" +final_selection, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Selected :" + final_selection, Toast.LENGTH_SHORT).show();
             }
         });
 

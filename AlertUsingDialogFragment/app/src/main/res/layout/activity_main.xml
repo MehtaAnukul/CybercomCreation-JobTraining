@@ -1,43 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_centerInParent="true">
-    <Button
-        android:id="@+id/activity_main_fireMissileAlertBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/alertDialog" />
-    <Button
-        android:id="@+id/activity_main_colorAlertBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/colorAlert" />
 
-    <Button
-        android:id="@+id/activity_main_carAlertBtn"
-        android:layout_width="250dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/car" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/activity_main_genderAlertBtn"
-        android:layout_width="250dp"
+        <Button
+            android:id="@+id/activity_main_fireMissileAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/alertDialog" />
+
+        <Button
+            android:id="@+id/activity_main_colorAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/colorAlert" />
+
+        <Button
+            android:id="@+id/activity_main_carAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/car" />
+
+        <Button
+            android:id="@+id/activity_main_genderAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/gender" />
+
+        <Button
+            android:id="@+id/activity_main_customAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/custom" />
+
+        <Button
+            android:id="@+id/activity_main_carWithTvAlertBtn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/car" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/activity_main_helloTv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gender"/>
-    <Button
-        android:id="@+id/activity_main_customAlertBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/custom"/>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:text="@string/hello"
+        android:textAppearance="?android:textAppearanceMedium" />
 
 </RelativeLayout>

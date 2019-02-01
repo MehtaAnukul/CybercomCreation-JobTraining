@@ -32,8 +32,6 @@ public class FireMissileDialog extends DialogFragment {
         });
 
 
-
-
         return builder.show();
     }
 }

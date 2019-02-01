@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class GenderDialog extends DialogFragment {
     private String selection;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class GenderDialog extends DialogFragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(), "Selected Gender :"+selection, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Selected Gender :" + selection, Toast.LENGTH_SHORT).show();
             }
         });
 

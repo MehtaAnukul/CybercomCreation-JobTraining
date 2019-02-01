@@ -7,6 +7,7 @@
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="custom">Custom Alert Dialog</string>
+    <string name="hello">Hello</string>
 
     <string-array name="color">
         <item>Red</item>
