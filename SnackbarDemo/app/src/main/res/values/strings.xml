@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SnackbarDemo</string>
+    <string name="click">Display Pop Up Message</string>
+</resources>
