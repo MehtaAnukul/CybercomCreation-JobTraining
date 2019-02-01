@@ -2,10 +2,19 @@
     <string name="app_name">AlertUsingDialogFragment</string>
     <string name="alertDialog">FireMissile AlertDialog</string>
     <string name="colorAlert">Color AlertDialog</string>
-    
+    <string name="car">Car Checkbox AlertDialog</string>
+
     <string-array name="color">
         <item>Red</item>
         <item>Blue</item>
         <item>Green</item>
+    </string-array>
+
+    <string-array name="car">
+        <item>Farrari</item>
+        <item>Lamborghini</item>
+        <item>Audi</item>
+        <item>Ford</item>
+
     </string-array>
 </resources>

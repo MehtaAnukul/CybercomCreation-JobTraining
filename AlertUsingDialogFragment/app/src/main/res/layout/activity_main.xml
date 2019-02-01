@@ -20,4 +20,12 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/activity_main_fireMissileAlertBtn"/>
 
+    <Button
+        android:id="@+id/activity_main_carAlertBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/activity_main_colorAlertBtn"
+        />
 </RelativeLayout>

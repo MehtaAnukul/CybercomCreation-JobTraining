@@ -8,6 +8,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button fireMissileAlertBtn;
     private Button colorAlertBtn;
+    private Button catAlertbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +17,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fireMissileAlertBtn = findViewById(R.id.activity_main_fireMissileAlertBtn);
         colorAlertBtn = findViewById(R.id.activity_main_colorAlertBtn);
+        catAlertbtn = findViewById(R.id.activity_main_carAlertBtn);
 
         fireMissileAlertBtn.setOnClickListener(this);
         colorAlertBtn.setOnClickListener(this);
-
+        catAlertbtn.setOnClickListener(this);
     }
 
     @Override
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_colorAlertBtn:
                 new MyDialog().show(getSupportFragmentManager(),"Color");
+                break;
+            case R.id.activity_main_carAlertBtn:
+                new CarDialog().show(getSupportFragmentManager(),"car");
                 break;
         }
     }
