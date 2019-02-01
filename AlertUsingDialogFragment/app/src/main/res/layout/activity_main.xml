@@ -7,10 +7,17 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/activity_main_alertBtn"
+        android:id="@+id/activity_main_fireMissileAlertBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/alertDialog"
         android:layout_centerInParent="true"/>
+    <Button
+        android:id="@+id/activity_main_colorAlertBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/colorAlert"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/activity_main_fireMissileAlertBtn"/>
 
 </RelativeLayout>
