@@ -44,6 +44,9 @@ public class CarDialog extends DialogFragment {
                 for (int item = 0; item < carSelectedArrayList.size(); item++) {
                     final_selection = final_selection +"\n"+carSelectedArrayList.get(item);
                 }
+                /*for (String item : carSelectedArrayList) {
+                    final_selection = final_selection+"\n"+item;
+                }*/
                 Toast.makeText(getActivity(), "Selected :" +final_selection, Toast.LENGTH_SHORT).show();
             }
         });
