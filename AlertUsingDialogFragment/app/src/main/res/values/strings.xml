@@ -4,6 +4,9 @@
     <string name="colorAlert">Color AlertDialog</string>
     <string name="car">Car Checkbox AlertDialog</string>
     <string name="gender">Gender Radio AlertDialog</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="custom">Custom Alert Dialog</string>
 
     <string-array name="color">
         <item>Red</item>

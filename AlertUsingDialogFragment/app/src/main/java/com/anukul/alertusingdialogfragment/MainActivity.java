@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button colorAlertBtn;
     private Button catAlertbtn;
     private Button genderAlertBtn;
+    private Button customAlertBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +21,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         colorAlertBtn = findViewById(R.id.activity_main_colorAlertBtn);
         catAlertbtn = findViewById(R.id.activity_main_carAlertBtn);
         genderAlertBtn = findViewById(R.id.activity_main_genderAlertBtn);
+        customAlertBtn = findViewById(R.id.activity_main_customAlertBtn);
 
         fireMissileAlertBtn.setOnClickListener(this);
         colorAlertBtn.setOnClickListener(this);
         catAlertbtn.setOnClickListener(this);
         genderAlertBtn.setOnClickListener(this);
+        customAlertBtn.setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_genderAlertBtn:
                 new GenderDialog().show(getSupportFragmentManager(),"gender");
+                break;
+            case R.id.activity_main_customAlertBtn:
+                CustomDialog customDialog = new CustomDialog();
+                customDialog.show(getSupportFragmentManager(),"custom");
                 break;
         }
     }
