@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ContextMenuWithRecyclerView</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="fruit">Fruit Name</string>
+</resources>
