@@ -1,14 +1,18 @@
 package com.anukul.optionmenu;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends OptionMenuActivity {
     private Toolbar toolbar;
+    private Button clickBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,9 +21,18 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
 
+        clickBtn = findViewById(R.id.activitiy_main_clickBtn);
+        clickBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoSecondActivity = new Intent(MainActivity.this,SecondActivity.class);
+                startActivity(gotoSecondActivity);
+            }
+        });
+
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
        getMenuInflater().inflate(R.menu.appbar_menu,menu);
         return true;
@@ -45,5 +58,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayMessage(String message) {
         Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

@@ -3,5 +3,8 @@
     <string name="cast">Cast</string>
     <string name="search">Search</string>
     <string name="setting">Setting</string>
+    <string name="second">Second Activity</string>
+    <string name="gotoSecond">Goto Second Activity</string>
+    <string name="share">Share</string>
 
 </resources>

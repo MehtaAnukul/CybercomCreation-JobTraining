@@ -9,4 +9,12 @@
 
   <include layout="@layout/toolbar_layout"/>
 
+  <Button
+      android:id="@+id/activitiy_main_clickBtn"
+      android:layout_width="240dp"
+      android:layout_height="wrap_content"
+      android:text="@string/gotoSecond"
+      android:layout_gravity="center"
+      android:layout_marginTop="200dp"/>
+
 </LinearLayout>
