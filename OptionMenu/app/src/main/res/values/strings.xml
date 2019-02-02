@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OptionMenu</string>
+    <string name="cast">Cast</string>
+    <string name="search">Search</string>
+    <string name="setting">Setting</string>
+
+</resources>
