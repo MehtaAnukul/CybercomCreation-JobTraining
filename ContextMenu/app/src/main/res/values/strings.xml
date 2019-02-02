@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ContextMenu</string>
+    <string name="contextMenu">Floating Context Menu Long Press</string>
+    <string name="Add">Add To PlayList</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="report">Report</string>
+    <string name="track">Track Info</string>
+</resources>
