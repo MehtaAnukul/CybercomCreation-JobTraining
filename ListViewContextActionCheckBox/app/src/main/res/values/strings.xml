@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ListViewContextActionCheckBox</string>
+    <string name="car">Car</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+
+    <string-array name="cars">
+
+        <item>Mclaren P1 LM</item>
+        <item>Lykan Hypersport</item>
+        <item>Lamborghini Veneno Roadster</item>
+        <item>Aston Martin Valkyrie</item>
+        <item>Ferrari Pininfarina Sergio</item>
+        <item>Pagani Huayra BC</item>
+        <item>Bugatti CHiron</item>
+        <item>McLaren P1 GTR</item>
+        <item>Ferrari Laferrari Aperta</item>
+        <item>Koenigsegg Regera</item>
+        <item>Mclaren P1 LM</item>
+
+    </string-array>
+</resources>

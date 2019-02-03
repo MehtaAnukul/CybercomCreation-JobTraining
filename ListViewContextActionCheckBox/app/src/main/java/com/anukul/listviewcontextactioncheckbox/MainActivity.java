@@ -1,4 +1,4 @@
-package com.anukul.listviewwithcontextmenu;
+package com.anukul.listviewcontextactioncheckbox;
 
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -14,14 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private ListView carListView;
     private CarListViewAdapter carListViewAdapter;
     private List<String> carList = new ArrayList<>();
-    private List<String> userSelectionList = new ArrayList<>();
+    public static List<String> userSelectionList = new ArrayList<>();
 
+    public static ActionMode actionMode = null;
 
     private CoordinatorLayout coordinatorLayout;
+
+    public static boolean isActionMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         carListViewAdapter = new CarListViewAdapter(carList,this);
         carListView.setAdapter(carListViewAdapter);
 
-    }
 
+    }
     private void getCars() {
         String carItem[] = getResources().getStringArray(R.array.cars);
 
@@ -53,18 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
     AbsListView.MultiChoiceModeListener multiChoiceModeListener = new AbsListView.MultiChoiceModeListener() {
         @Override
-        public void onItemCheckedStateChanged(ActionMode mode, int position, long l, boolean b) {
-            if(userSelectionList.contains(carList.get(position))){
-                userSelectionList.remove(carList.get(position));
-            }else {
-                userSelectionList.add(carList.get(position));
-            }
-            mode.setTitle(userSelectionList.size() +" items selected");
+        public void onItemCheckedStateChanged(ActionMode actionMode, int i, long l, boolean b) {
+
         }
 
         @Override
-        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             getMenuInflater().inflate(R.menu.contextual_menu,menu);
+
+            isActionMode = true;
+            actionMode = mode;
             return true;
         }
 
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-
             switch (menuItem.getItemId()){
                 case R.id.contextual_menu_delete:
                     carListViewAdapter.removeItem(userSelectionList);
@@ -83,13 +82,13 @@ public class MainActivity extends AppCompatActivity {
                     actionMode.finish();
                     break;
             }
-
-
             return false;
         }
 
         @Override
-        public void onDestroyActionMode(ActionMode actionMode) {
+        public void onDestroyActionMode(ActionMode mode) {
+            isActionMode = false;
+            actionMode = null;
             userSelectionList.clear();
         }
     };
