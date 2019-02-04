@@ -17,4 +17,5 @@
     <string name="Update">Update</string>
     <string name="deleteContact">Delete Contact</string>
     <string name="deletebtn">Delete</string>
+    <string name="id">ID</string>
 </resources>

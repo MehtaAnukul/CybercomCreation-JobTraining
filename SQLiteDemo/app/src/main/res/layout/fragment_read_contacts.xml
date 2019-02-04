@@ -5,13 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ReadContactsFragment">
 
-    <TextView
+
+    <!--<TextView
         android:id="@+id/fragment_read_contacts_diplayTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/helloworld"
         android:textAppearance="?android:textAppearanceMedium"
         android:layout_margin="15dp"
-        android:padding="20dp"/>
+        android:padding="20dp"/>-->
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_readContact_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/custom_layout"/>
 </ScrollView>

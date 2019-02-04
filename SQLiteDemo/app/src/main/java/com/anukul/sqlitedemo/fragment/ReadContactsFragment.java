@@ -1,19 +1,18 @@
 package com.anukul.sqlitedemo.fragment;
 
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.anukul.sqlitedemo.ContactDbHelper;
 import com.anukul.sqlitedemo.R;
-import com.anukul.sqlitedemo.app.ContactDbConstant;
+import com.anukul.sqlitedemo.ReadContactAdapter;
 import com.anukul.sqlitedemo.model.ContactModel;
 
 import java.util.ArrayList;
@@ -23,8 +22,11 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class ReadContactsFragment extends Fragment {
+    private RecyclerView customReadContactRecyclerView;
+    private ArrayList<ContactModel> contactModelArrayList;
+    private ReadContactAdapter readContactAdapter;
 
-    private TextView helloTv;
+    //private TextView helloTv;
 
     SQLiteDatabase sqLiteDatabase;
 
@@ -39,33 +41,39 @@ public class ReadContactsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_read_contacts, container, false);
-        helloTv = view.findViewById(R.id.fragment_read_contacts_diplayTv);
+        //helloTv = view.findViewById(R.id.fragment_read_contacts_diplayTv);
 //        readContact();
-        readContactData();
+        customReadContactRecyclerView = view.findViewById(R.id.fragment_readContact_recyclerView);
+
+        ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
+        contactModelArrayList = contactDbHelper.getAllUser();
+        readContactAdapter = new ReadContactAdapter(contactModelArrayList);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        customReadContactRecyclerView.setLayoutManager(layoutManager);
+        customReadContactRecyclerView.setAdapter(readContactAdapter);
+
+        // readContactData();
         return view;
     }
 
-    private void readContactData() {
+   /* private void readContactData() {
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
 
         ArrayList<ContactModel> contactModelArrayList = contactDbHelper.getAllUser();
-
         String info = "";
 
 //        for (ContactModel contactModel : contactModelArrayList) {
-//
 //        }
         for (int i = 0; i < contactModelArrayList.size(); i++) {
 
-            info = info + "\n\n" + contactModelArrayList.get(i).getId()+
-                    "\nName : " + contactModelArrayList.get(i).getName()+
+            info = info + "\n\n" + contactModelArrayList.get(i).getId() +
+                    "\nName : " + contactModelArrayList.get(i).getName() +
                     "\nEmail : " + contactModelArrayList.get(i).getEmail();
-            helloTv.setText(info);
+            //  helloTv.setText(info);
 
         }
-
-
-    }
+    }*/
 
     /*private void readContact() {
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
