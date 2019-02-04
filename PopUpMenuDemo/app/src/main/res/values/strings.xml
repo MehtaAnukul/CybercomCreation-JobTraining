@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PopUpMenuDemo</string>
+    <string name="popUp">Dispaly PopUp Menu</string>
+    <string name="newGroup">New Group</string>
+    <string name="newBroadcast">New Broadcast</string>
+    <string name="whatsAppWeb">WhatsApp Web</string>
+    <string name="notification">Notification</string>
+    <string name="chats">Chats</string>
+    <string name="account">Account</string>
+    <string name="setting">Setting</string>
+</resources>
