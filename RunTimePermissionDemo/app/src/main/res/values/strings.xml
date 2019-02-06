@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RunTimePermissionDemo</string>
+    <string name="camera">Use Camera</string>
+    <string name="externalStorage">Write to External Storage</string>
+    <string name="readContacts">Read Contacts</string>
+    <string name="permission">Your Permission Details Appear Here</string>
+</resources>
