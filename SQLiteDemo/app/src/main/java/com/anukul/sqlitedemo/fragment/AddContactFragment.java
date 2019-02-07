@@ -85,7 +85,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
             ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
             start_time = System.currentTimeMillis();
-            for (int i = 0; i < 5000; i++) {
+            for (int i = 0; i < 500; i++) {
 
                 contactDbHelper.insertContact(new ContactModel(name + i, email + i), sqLiteDatabase);
             }

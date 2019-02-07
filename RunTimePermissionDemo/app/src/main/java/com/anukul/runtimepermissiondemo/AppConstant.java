@@ -9,8 +9,8 @@ public class AppConstant {
     public static final String KEY_PERMISSION_CONTACTS = "PERMISSION_CONTACTS";
 
     public static final int KEY_REQUEST_CAMERA = 125;
-    public static final int KEY_REQUEST_STORAGE = 126;
-        public static final int KEY_REQUEST_CONTACTS = 127;
+    public static final int KEY_REQUEST_STORAGE = 225;
+    public static final int KEY_REQUEST_CONTACTS = 325;
 
     public static final int KEY_TXT_CAMERA = 1;
     public static final int KEY_TXT_STORAGE = 2;
