@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
     private EditText userNameEd;
     private EditText userEmailEd;
     private Button saveBtn;
+
+    private long start_time, end_time, total_time;
 
     public AddUserFragment() {
         // Required empty public constructor
@@ -66,20 +69,34 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
         String name = userNameEd.getText().toString().trim();
         String email = userEmailEd.getText().toString().trim();
 
-        for (int i = 0; i < 500; i++) {
-            UserModel userModel = new UserModel();
-            userModel.setId(id + i);
-            userModel.setName(name + i);
-            userModel.setEmail(email + i);
-            MainActivity.myAppDatabase.mydataAccessObject().addUser(userModel);
+        if (TextUtils.isEmpty(name)) {
+            userNameEd.setError("please enter name");
+        } else if (TextUtils.isEmpty(email)) {
+            userEmailEd.setError("please enter email id");
+        } else {
+
+            start_time = System.currentTimeMillis();
+            for (int i = 0; i < 500; i++) {
+                UserModel userModel = new UserModel();
+                userModel.setId(id + i);
+                userModel.setName(name + i);
+                userModel.setEmail(email + i);
+                MainActivity.myAppDatabase.mydataAccessObject().addUser(userModel);
+            }
+            end_time = System.currentTimeMillis();
+            total_time = end_time - start_time;
+
+
+            Toast.makeText(getContext(), total_time+" Mili Second User added", Toast.LENGTH_SHORT).show();
+
+            userIdEd.setText("");
+            userNameEd.setText("");
+            userEmailEd.setText("");
+
+
         }
-
-        Toast.makeText(getContext(), "User added Successfully", Toast.LENGTH_SHORT).show();
-
-        userIdEd.setText("");
-        userNameEd.setText("");
-        userEmailEd.setText("");
-
-
     }
 }
+
+
+

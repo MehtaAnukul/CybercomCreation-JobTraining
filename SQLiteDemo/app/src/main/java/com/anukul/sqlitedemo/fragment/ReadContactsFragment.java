@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.anukul.sqlitedemo.ContactDbHelper;
 import com.anukul.sqlitedemo.R;
@@ -25,6 +26,8 @@ public class ReadContactsFragment extends Fragment {
     private RecyclerView customReadContactRecyclerView;
     private ArrayList<ContactModel> contactModelArrayList;
     private ReadContactAdapter readContactAdapter;
+
+    private long start_time, end_time, total_time;
 
     //private TextView helloTv;
 
@@ -45,6 +48,7 @@ public class ReadContactsFragment extends Fragment {
 //        readContact();
         customReadContactRecyclerView = view.findViewById(R.id.fragment_readContact_recyclerView);
 
+        start_time = System.currentTimeMillis();
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         contactModelArrayList = contactDbHelper.getAllUser();
         readContactAdapter = new ReadContactAdapter(contactModelArrayList);
@@ -52,7 +56,9 @@ public class ReadContactsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         customReadContactRecyclerView.setLayoutManager(layoutManager);
         customReadContactRecyclerView.setAdapter(readContactAdapter);
-
+        end_time = System.currentTimeMillis();
+        total_time = end_time - start_time;
+        Toast.makeText(getActivity(), total_time+" mili seconds", Toast.LENGTH_SHORT).show();
         // readContactData();
         return view;
     }
