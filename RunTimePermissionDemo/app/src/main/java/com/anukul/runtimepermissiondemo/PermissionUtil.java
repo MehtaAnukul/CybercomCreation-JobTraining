@@ -1,7 +1,7 @@
 package com.anukul.runtimepermissiondemo;
 
-        import android.content.Context;
-        import android.content.SharedPreferences;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 public class PermissionUtil {
     private Context context;

@@ -8,6 +8,7 @@ public class AppConstant {
     public static final String KEY_PERMISSION_STORAGE = "PERMISSION_STORAGE";
     public static final String KEY_PERMISSION_CONTACTS = "PERMISSION_CONTACTS";
 
+    public static final int KEY_REQUEST_GROUP_PERMISSION = 425;
     public static final int KEY_REQUEST_CAMERA = 125;
     public static final int KEY_REQUEST_STORAGE = 225;
     public static final int KEY_REQUEST_CONTACTS = 325;

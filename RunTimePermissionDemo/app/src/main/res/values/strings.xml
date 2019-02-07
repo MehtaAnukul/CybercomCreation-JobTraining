@@ -4,4 +4,5 @@
     <string name="externalStorage">Write to External Storage</string>
     <string name="readContacts">Read Contacts</string>
     <string name="permission">Your Permission Details Appear Here</string>
+    <string name="requestAllPermisssion">Request All Permission</string>
 </resources>

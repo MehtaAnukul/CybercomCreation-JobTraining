@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button requestAllPermissionBtn;
     private Button cameraBtn;
     private Button externalStorageBtn;
     private Button readContactsbtn;
@@ -30,10 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         permissionUtil = new PermissionUtil(this);
 
+        requestAllPermissionBtn = findViewById(R.id.activity_main_requestAllPermissionBtn);
         cameraBtn = findViewById(R.id.activity_main_cameraBtn);
         externalStorageBtn = findViewById(R.id.activity_main_externalStorageBtn);
         readContactsbtn = findViewById(R.id.activity_main_readContactBtn);
 
+        requestAllPermissionBtn.setOnClickListener(this);
         cameraBtn.setOnClickListener(this);
         externalStorageBtn.setOnClickListener(this);
         readContactsbtn.setOnClickListener(this);
@@ -120,6 +125,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.activity_main_requestAllPermissionBtn:
+                requestAllPermission();
+                break;
             case R.id.activity_main_cameraBtn:
                 openCamera();
                 break;
@@ -130,6 +138,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 readContacts();
                 break;
         }
+    }
+
+    private void requestGroupPermission(ArrayList<String> permission){
+        //convert permisssion arraylist into string array value using toArray func
+        String permissionList[] = new String[permission.size()];
+        permission.toArray(permissionList);
+
+        ActivityCompat.requestPermissions(MainActivity.this,permissionList,AppConstant.KEY_REQUEST_GROUP_PERMISSION);
+    }
+    private void requestAllPermission() {
+            ArrayList<String> permissionNeeded = new ArrayList<>();
+            ArrayList<String> permissionAvailable = new ArrayList<>();
+
+            permissionAvailable.add(Manifest.permission.CAMERA);
+            permissionAvailable.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            permissionAvailable.add(Manifest.permission.READ_CONTACTS);
+
+        //check which r permission is already granted or not
+        //if not granted so add permission in permissionNeeded arraylist
+        for (String permission : permissionAvailable) {
+            if(ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED){
+                permissionNeeded.add(permission);
+            }
+
+        }
+        requestGroupPermission(permissionNeeded);
     }
 
     private void readContacts() {
