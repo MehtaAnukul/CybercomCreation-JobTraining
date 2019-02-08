@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CameraHighQualityPicture</string>
+    <string name="captureImage">Capture Image</string>
+    <string name="displayImg">Display Image</string>
+</resources>
