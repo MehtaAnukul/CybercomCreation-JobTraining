@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CameraVideoDemo</string>
+    <string name="captureVideo">Capture Video</string>
+    <string name="playVideo">Play Video</string>
+</resources>
