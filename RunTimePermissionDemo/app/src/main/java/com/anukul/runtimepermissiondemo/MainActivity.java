@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -164,6 +165,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         requestGroupPermission(permissionNeeded);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case AppConstant.KEY_REQUEST_CAMERA:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this, "You have camera permission", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this,ResultActivity.class);
+                    intent.putExtra(AppConstant.KEY_MESSAGE,"You can now take photos and record videos");
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "Camera permission is denied. Turn off camera modules of the app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case AppConstant.KEY_REQUEST_STORAGE:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this, "You have Storage permission", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this,ResultActivity.class);
+                    intent.putExtra(AppConstant.KEY_MESSAGE,"Now you can write to the Storage of this device..");
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "Storage permission is denied. Turn off Storage modules of the app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case AppConstant.KEY_REQUEST_CONTACTS:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this, "You have Contacts permission", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this,ResultActivity.class);
+                    intent.putExtra(AppConstant.KEY_MESSAGE,"Now you can Read contact available of this device..");
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "Read Contacts permission is denied. Turn off Contacts modules of the app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case AppConstant.KEY_REQUEST_GROUP_PERMISSION:
+                String result = "";
+                for (int i = 0; i < permissions.length; i++) {
+                    String status = "";
+                    if(grantResults[i] == PackageManager.PERMISSION_GRANTED){
+                        status = "GRANTED";
+                    }else {
+                        status = "DENIED";
+                    }
+                    result = result +"\n"+ permissions[i].toString()+ " : "+status;
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Grop Permission Details..");
+                builder.setMessage(result);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                break;
+        }
+
     }
 
     private void readContacts() {
