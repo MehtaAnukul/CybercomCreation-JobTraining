@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/sqlite_customLayout_idTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/id"
+        android:layout_margin="2dp"/>
+    <TextView
+        android:id="@+id/sqlite_customLayout_firstNameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fName"
+        android:layout_margin="2dp"/>
+    <TextView
+        android:id="@+id/sqlite_customLayout_lastNameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lName"
+        android:layout_margin="2dp"/>
+    <TextView
+        android:id="@+id/sqlite_customLayout_phoneNoTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/phoneNum"
+        android:layout_margin="2dp"/>
+
+    <TextView
+        android:id="@+id/sqlite_customLayout_emailTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:layout_margin="2dp"/>
+
+
+</LinearLayout>

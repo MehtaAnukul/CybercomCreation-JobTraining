@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SqliteAndRoomTest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="room">Open Room</string>
+    <string name="sqlite">Open Sqlite</string>
+    <string name="add">Add Contact</string>
+    <string name="view">View Contact</string>
+    <string name="id">ID</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phoneNum">Phone No</string>
+    <string name="email">Email</string>
+    <string name="fName">FirstName</string>
+    <string name="lName">LastName</string>
+</resources>
