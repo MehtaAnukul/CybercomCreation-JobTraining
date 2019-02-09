@@ -47,6 +47,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 startActivity(sqliteIntent);
                 break;
             case R.id.fragment_main_openRoomBtn:
+                Intent roomIntent = new Intent(getActivity(),RoomActivity.class);
+                startActivity(roomIntent);
                 break;
         }
     }
