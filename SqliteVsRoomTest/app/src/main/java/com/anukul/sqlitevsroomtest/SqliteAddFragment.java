@@ -20,7 +20,7 @@ import com.anukul.sqlitevsroomtest.model.ContactModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SqliteFragment extends Fragment implements View.OnClickListener{
+public class SqliteAddFragment extends Fragment implements View.OnClickListener{
     private EditText contactIdEd;
     private EditText nameEd;
     private EditText lastNameEd;
@@ -31,7 +31,7 @@ public class SqliteFragment extends Fragment implements View.OnClickListener{
     SQLiteDatabase sqLiteDatabase;
 
 
-    public SqliteFragment() {
+    public SqliteAddFragment() {
         // Required empty public constructor
     }
 
@@ -40,7 +40,7 @@ public class SqliteFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_sqlite, container, false);
+        View view =  inflater.inflate(R.layout.fragment_sqlite_add, container, false);
         return view;
     }
 
@@ -53,6 +53,7 @@ public class SqliteFragment extends Fragment implements View.OnClickListener{
         lastNameEd = view.findViewById(R.id.fragment_sqlite_lastNameEd);
         phoneNoEd = view.findViewById(R.id.fragment_sqlite_phoneNumEd);
         emailEd = view.findViewById(R.id.fragment_sqlite_emailEd);
+        addBtn = view.findViewById(R.id.fragment_sqlite_addBtn);
 
         addBtn.setOnClickListener(this);
 
@@ -86,9 +87,10 @@ public class SqliteFragment extends Fragment implements View.OnClickListener{
         }else {
             ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
-            for (int i = 0; i < 500; i++) {
+            for (int i = 0; i < 10; i++) {
 
-                contactDbHelper.insertContact(new ContactModel(name,lastName,phoneNo,email ), sqLiteDatabase);
+
+                contactDbHelper.insertContact(new ContactModel(name,lastName,phoneNo,email),sqLiteDatabase);
             }
             contactDbHelper.close();
             contactIdEd.setText("");

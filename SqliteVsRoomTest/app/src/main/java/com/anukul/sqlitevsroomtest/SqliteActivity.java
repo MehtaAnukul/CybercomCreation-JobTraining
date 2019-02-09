@@ -34,15 +34,21 @@ public class SqliteActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.appbar_menu_insertData:
-                SqliteFragment sqliteFragment = new SqliteFragment();
+                ReadContactsFragment readContactsFragmentt = new ReadContactsFragment();
+                SqliteAddFragment sqliteAddFragment = new SqliteAddFragment();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.activity_sqlite_fragment_container,sqliteFragment,SqliteActivity.class.getSimpleName());
+                fragmentTransaction.replace(R.id.activity_sqlite_fragment_container,sqliteAddFragment,SqliteActivity.class.getSimpleName());
+                //fragmentTransaction.addToBackStack(SqliteAddFragment.class.getSimpleName());
+                fragmentTransaction.hide(readContactsFragmentt);
                 fragmentTransaction.commit();
                 break;
             case R.id.appbar_menu_ViewData:
+                SqliteAddFragment sqliteAddFragmentt = new SqliteAddFragment();
                 ReadContactsFragment readContactsFragment = new ReadContactsFragment();
                 FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-                fragmentTransaction1.add(R.id.activity_sqlite_fragment_container,readContactsFragment,SqliteActivity.class.getSimpleName());
+                fragmentTransaction1.replace(R.id.activity_sqlite_fragment_container,readContactsFragment,SqliteActivity.class.getSimpleName());
+                //fragmentTransaction1.addToBackStack(ReadContactsFragment.class.getSimpleName());
+                fragmentTransaction1.hide(sqliteAddFragmentt);
                 fragmentTransaction1.commit();
                 break;
         }

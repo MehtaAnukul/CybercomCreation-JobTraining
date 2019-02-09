@@ -7,9 +7,9 @@ public class ContactDbConstant {
     public static final String CONTACT_TABALE_NAME = "contact_info";
     public static final String CONTACT_COLUMN_ID = "contact_id";
     public static final String CONTACT_COLUMN_NAME = "name";
-    public static final String CONTACT_COLUMN_EMAIL = "email";
     public static final String CONTACT_COLUMN_LASTNAME = "lastName";
     public static final String CONTACT_COLUMN_PHONE_NO = "phoneNo";
+    public static final String CONTACT_COLUMN_EMAIL = "email";
 
 
     public static final String CREATE_CONTACT_TABLE =
