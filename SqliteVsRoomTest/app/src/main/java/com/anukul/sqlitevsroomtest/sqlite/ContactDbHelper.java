@@ -42,8 +42,8 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getName());
-        contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getLastName());
-        contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getPhoneNo());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_LASTNAME,contactModel.getLastName());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE_NO,contactModel.getPhoneNo());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
 
         return sqLiteDatabase.insert(ContactDbConstant.CONTACT_TABALE_NAME,null,contentValues);

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import com.anukul.sqlitevsroomtest.sqlite.model.ContactModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SqliteAddFragment extends Fragment implements View.OnClickListener{
+public class SqliteAddFragment extends Fragment implements View.OnClickListener {
     private EditText contactIdEd;
     private EditText nameEd;
     private EditText lastNameEd;
@@ -42,7 +43,7 @@ public class SqliteAddFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_sqlite_add, container, false);
+        View view = inflater.inflate(R.layout.fragment_sqlite_add, container, false);
         return view;
     }
 
@@ -63,7 +64,7 @@ public class SqliteAddFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.fragment_sqlite_addBtn:
                 insertData();
                 break;
@@ -78,21 +79,21 @@ public class SqliteAddFragment extends Fragment implements View.OnClickListener{
 
         if (TextUtils.isEmpty(name)) {
             nameEd.setError("Please enter name");
-        } else if (TextUtils.isEmpty(lastName)){
+        } else if (TextUtils.isEmpty(lastName)) {
             lastNameEd.setError("Please enter lastName");
-        }
-        else if (TextUtils.isEmpty(phoneNo)){
+        } else if (TextUtils.isEmpty(phoneNo)) {
             phoneNoEd.setError("Please enter phoneNo");
-        }
-        else if (TextUtils.isEmpty(email)) {
+        } else if (TextUtils.isEmpty(email)) {
             emailEd.setError("please enter email");
-        }else {
+        } else {
             ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
+
+            Toast.makeText(getActivity(), "" + name + "-" + lastName + "-" + phoneNo + "-" + email, Toast.LENGTH_SHORT).show();
+            Log.e("DATA", name + "-" + lastName + "-" + phoneNo + "-" + email);
             for (int i = 0; i < 10; i++) {
-
-
-                contactDbHelper.insertContact(new ContactModel(name,lastName,phoneNo,email),sqLiteDatabase);
+                contactDbHelper.insertContact(new ContactModel(name + i, lastName + i, phoneNo + i, email + i),
+                        sqLiteDatabase);
             }
             contactDbHelper.close();
             contactIdEd.setText("");

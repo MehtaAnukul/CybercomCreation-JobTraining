@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import com.anukul.sqlitevsroomtest.R;
 import com.anukul.sqlitevsroomtest.sqlite.fragment.SplashFragment;
 import com.anukul.sqlitevsroomtest.sqlite.fragment.SqliteRoomFragment;
+import com.facebook.stetho.Stetho;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar_layout_toolbar);
         setSupportActionBar(toolbar);
+        Stetho.initializeWithDefaults(this);
 
         fragmentManager = getSupportFragmentManager();
 

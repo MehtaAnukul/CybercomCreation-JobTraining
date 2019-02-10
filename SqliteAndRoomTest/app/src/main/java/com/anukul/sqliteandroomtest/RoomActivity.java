@@ -1,16 +1,20 @@
 package com.anukul.sqliteandroomtest;
 
+import android.arch.persistence.room.Room;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.anukul.sqliteandroomtest.roomDatabase.MyAppDatabase;
+import com.anukul.sqliteandroomtest.roomfragment.RoomHomeFragment;
+
 public class RoomActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     private FragmentManager fragmentManager;
-   // public static MyAppDatabase myAppDatabase;
+    public static MyAppDatabase myAppDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +24,7 @@ public class RoomActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fragmentManager = getSupportFragmentManager();
-       // myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "userdb").allowMainThreadQueries().build();
+        myAppDatabase = Room.databaseBuilder(getApplicationContext(), MyAppDatabase.class, "userdb").allowMainThreadQueries().build();
 
         RoomHomeFragment roomHomeFragment = new RoomHomeFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

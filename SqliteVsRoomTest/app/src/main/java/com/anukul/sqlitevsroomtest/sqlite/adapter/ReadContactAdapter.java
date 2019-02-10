@@ -7,15 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.anukul.sqlitevsroomtest.R;
 import com.anukul.sqlitevsroomtest.sqlite.model.ContactModel;
 
 import java.util.ArrayList;
 
-public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.ReadUserViewHolder>{
+public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.ReadUserViewHolder> {
 
     private ArrayList<ContactModel> contactModelArrayList;
+
+    public ReadContactAdapter() {
+    }
 
     public ReadContactAdapter(ArrayList<ContactModel> userModelArrayList) {
         this.contactModelArrayList = userModelArrayList;
@@ -27,6 +29,7 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
         TextView lastName;
         TextView phoneNo;
         TextView email;
+
         public ReadUserViewHolder(View itemView) {
             super(itemView);
 
@@ -37,10 +40,11 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
             email = itemView.findViewById(R.id.custom_layout_emailTv);
         }
     }
+
     @NonNull
     @Override
     public ReadUserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_layout, parent, false);
 
         return new ReadUserViewHolder(view);
     }
@@ -49,11 +53,11 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
     public void onBindViewHolder(@NonNull ReadUserViewHolder holder, int position) {
         ContactModel contactModel = contactModelArrayList.get(position);
 
-        holder.id.setText("ID : "+contactModel.getId()+"");
-        holder.name.setText("Name : "+contactModel.getName());
-        holder.lastName.setText("LastName : "+contactModel.getLastName());
-        holder.phoneNo.setText("Phone No :"+contactModel.getPhoneNo());
-        holder.email.setText("Email : "+contactModel.getEmail());
+        holder.id.setText("ID : " + contactModel.getId() + "");
+        holder.name.setText("Name : " + contactModel.getName());
+        holder.lastName.setText("LastName : " + contactModel.getLastName());
+        holder.phoneNo.setText("Phone No :" + contactModel.getPhoneNo());
+        holder.email.setText("Email : " + contactModel.getEmail());
 
 
     }
@@ -64,8 +68,9 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
     }
 
 
-    public void updateList(ArrayList<String> searchContactArraylist){
+    public void updateList(ArrayList<ContactModel> searchContactArraylist) {
         contactModelArrayList = new ArrayList<>();
+        contactModelArrayList.addAll(searchContactArraylist);
         notifyDataSetChanged();
     }
 

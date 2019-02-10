@@ -16,4 +16,7 @@
     <string name="id">ID</string>
     <string name="name">FirstName</string>
     <string name="search">Search</string>
+    <string name="addUser">Add User</string>
+    <string name="fName">FirstName</string>
+    <string name="lName">LastName</string>
 </resources>
