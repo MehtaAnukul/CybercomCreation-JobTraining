@@ -25,6 +25,7 @@ public class RoomActivity extends AppCompatActivity implements SearchView.OnQuer
     private Toolbar toolbar;
 
     private FragmentManager fragmentManager;
+    private RoomReadUserFragment roomReadUserFragment;
     public static MyAppDatabase myAppDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,7 @@ public class RoomActivity extends AppCompatActivity implements SearchView.OnQuer
         String usertext = s.toLowerCase();
         ArrayList<UserModel> searchArraylist = new ArrayList<>();
 
+        
 
 
         return true;

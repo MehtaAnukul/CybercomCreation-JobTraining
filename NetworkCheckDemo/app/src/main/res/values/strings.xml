@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NetworkCheckDemo</string>
+    <string name="checkNetworkStatus">Check Network Status</string>
+    <string name="checkNetworkType">Check Network Type</string>
+</resources>
