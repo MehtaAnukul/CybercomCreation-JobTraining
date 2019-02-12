@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BroadcastDemo</string>
+    <string name="noIncomingNumber">No Incoming Number</string>
+    <string name="num">1234567890</string>
+</resources>
