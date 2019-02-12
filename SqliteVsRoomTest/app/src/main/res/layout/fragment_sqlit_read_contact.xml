@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="10dp"
-    android:layout_marginTop="70dp"
+    android:layout_marginTop="2dp"
     tools:context=".sqlite.fragment.SqlitReadContactFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,6 +15,7 @@
         android:id="@+id/fragment_sqliteReadContact_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         tools:listitem="@layout/custom_layout" />
 
     <android.support.design.widget.FloatingActionButton
@@ -24,6 +26,7 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
+        app:backgroundTint="@color/bg_gradient_start"
         android:src="@drawable/ic_sort_black_24dp" />
 
 </RelativeLayout>

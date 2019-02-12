@@ -8,5 +8,10 @@
     <color name="colorRedLight">#d7ada8</color>
     <color name="colorLightBlue">#b9deef</color>
 
+    <color name="white">#ffffff</color>
+    <color name="bg_gradient_start">#b21331</color>
+    <color name="bg_gradient_end">#820d2a</color>
+    <color name="bg_button_add">#380813</color>
+
 
 </resources>

@@ -21,6 +21,7 @@ import com.anukul.sqlitevsroomtest.sqlite.activity.SqliteActivity;
  */
 public class SqliteRoomFragment extends Fragment implements View.OnClickListener {
 
+
     private Button openSqliteBtn;
     private Button openRoomBtn;
 

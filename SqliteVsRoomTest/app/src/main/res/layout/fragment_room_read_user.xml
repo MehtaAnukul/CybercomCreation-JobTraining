@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="70dp"
-    android:layout_marginLeft="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".roomfragment.RoomReadUserFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,6 +13,7 @@
         android:id="@+id/fragment_roomReadUser_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         tools:listitem="@layout/room_custom_layout"
         />
     <android.support.design.widget.FloatingActionButton
@@ -23,5 +23,6 @@
         android:src="@drawable/ic_sort_black_24dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        app:backgroundTint="@color/bg_gradient_start"
         android:layout_margin="10dp"/>
 </RelativeLayout>

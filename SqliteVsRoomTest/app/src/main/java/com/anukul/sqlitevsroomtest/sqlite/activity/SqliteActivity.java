@@ -108,7 +108,9 @@ public class SqliteActivity extends AppCompatActivity implements SearchView.OnQu
 
         for (int i = 0; i < SqlitReadContactFragment.getContactModelArrayList().size(); i++) {
             if (SqlitReadContactFragment.getContactModelArrayList().get(i).getName().toLowerCase().contains(usertext)
-                    || SqlitReadContactFragment.getContactModelArrayList().get(i).getEmail().toLowerCase().contains(usertext)) {
+                    || SqlitReadContactFragment.getContactModelArrayList().get(i).getEmail().toLowerCase().contains(usertext)
+                    || SqlitReadContactFragment.getContactModelArrayList().get(i).getPhoneNo().toLowerCase().contains(usertext)
+                    || SqlitReadContactFragment.getContactModelArrayList().get(i).getLastName().toLowerCase().toLowerCase().contains(usertext)) {
                 searchArrayList.add(SqlitReadContactFragment.getContactModelArrayList().get(i));
             }
         }
