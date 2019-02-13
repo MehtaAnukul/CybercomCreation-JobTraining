@@ -9,8 +9,137 @@
     tools:context=".sqlite.fragment.SqlitReadContactFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:id="@+id/fabFrame"
+        android:elevation="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/fab_firstName_layout">
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/bg_gradient_start"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/fab_firstNameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/firstName"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
+            </android.support.v7.widget.CardView>
 
 
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/firstName_floatingBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/bg_gradient_start"
+                android:src="@drawable/ic_person"
+                app:fabSize="mini"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/fab_lastname_layout">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/bg_gradient_start"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/fab_lastnameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lastName"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/lastName_floatingBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/bg_gradient_start"
+                android:src="@drawable/ic_perm_identity"
+                app:fabSize="mini"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="75dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/fab_email_layout">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/bg_gradient_start"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/fab_emailTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/email_floatingBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/bg_gradient_start"
+                android:src="@drawable/ic_email"
+                app:fabSize="mini"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_sqliteReadContact_recyclerView"
         android:layout_width="match_parent"

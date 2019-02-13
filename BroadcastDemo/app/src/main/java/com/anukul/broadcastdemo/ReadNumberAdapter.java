@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ReadNumberAdapter extends RecyclerView.Adapter<ReadNumberAdapter.ReadNumberViewHolder> {
 
-    private ArrayList<NumbarModel> numbarModelArrayList = new ArrayList<>();
+    private ArrayList<NumbarModel> numbarModelArrayList;
 
     public ReadNumberAdapter(ArrayList<NumbarModel> numbarModelArrayList) {
         this.numbarModelArrayList = numbarModelArrayList;
@@ -40,7 +40,7 @@ public class ReadNumberAdapter extends RecyclerView.Adapter<ReadNumberAdapter.Re
     public void onBindViewHolder(@NonNull ReadNumberViewHolder readNumberViewHolder, int i) {
         NumbarModel numbarModel = numbarModelArrayList.get(i);
 
-        readNumberViewHolder.idTv.setText(numbarModel.getId());
+        readNumberViewHolder.idTv.setText(Integer.toString(numbarModel.getId()));
         readNumberViewHolder.numberTv.setText(numbarModel.getNumber());
     }
 

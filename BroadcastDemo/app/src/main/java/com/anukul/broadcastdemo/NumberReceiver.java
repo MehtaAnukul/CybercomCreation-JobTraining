@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.telephony.TelephonyManager;
+import android.widget.Toast;
 
 public class NumberReceiver extends BroadcastReceiver {
 
@@ -15,7 +16,8 @@ public class NumberReceiver extends BroadcastReceiver {
             String number = intent.getExtras().getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
             ContactDbHelper contactDbHelper = new ContactDbHelper(context);
             SQLiteDatabase sqLiteDatabase = contactDbHelper.getWritableDatabase();
-            contactDbHelper.insertNumber(new NumbarModel(1,number),sqLiteDatabase);
+            contactDbHelper.insertNumber(number,sqLiteDatabase);
+            Toast.makeText(context, "Number Inserted.", Toast.LENGTH_SHORT).show();
             contactDbHelper.close();
         }
     }

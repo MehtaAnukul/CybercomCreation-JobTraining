@@ -8,13 +8,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.anukul.broadcastdemo.app.ContactDbConstant;
 
 import java.util.ArrayList;
 
 public class ContactDbHelper extends SQLiteOpenHelper {
+
+    private RecyclerView numberCustomRecyclerView;
+    private ArrayList<NumbarModel> numbarModelArrayList;
+    private ReadNumberAdapter readNumberAdapter;
+    private TextView noIncomigTv;
 
     SQLiteDatabase sqLiteDatabase;
 
@@ -26,7 +34,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(ContactDbConstant.CONTACT_TABALE_NAME);
+        db.execSQL(ContactDbConstant.CREATE_CONTACT_TABLE);
         Log.e("DatabaseOperations","Table Created");
 
     }
@@ -38,33 +46,19 @@ public class ContactDbHelper extends SQLiteOpenHelper {
     }
 
     //insert
-    public long insertNumber(NumbarModel numbarModel,SQLiteDatabase sqLiteDatabase){
+    public void insertNumber(String number,SQLiteDatabase sqLiteDatabase){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ContactDbConstant.CONTACT_COLUMN_ID,numbarModel.getId());
-        contentValues.put(ContactDbConstant.CONTACT_COLUMN_INCOMING_NO,numbarModel.getNumber());
-       return sqLiteDatabase.insert(ContactDbConstant.CONTACT_TABALE_NAME,null,contentValues);
+       // contentValues.put(ContactDbConstant.CONTACT_COLUMN_ID,numbarModel.getId());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_INCOMING_NO,number);
+        sqLiteDatabase.insert(ContactDbConstant.CONTACT_TABALE_NAME,null,contentValues);
     }
 
     //read
-    public ArrayList<NumbarModel> getAllNumber(){
+    public Cursor getAllNumber(SQLiteDatabase db){
         ArrayList<NumbarModel> numbarModelArrayList = new ArrayList<>();
-        //String selectUserQuery = "SELECT * FROM " + ContactDbConstant.CONTACT_TABALE_NAME;
-        String selectUserQuery = "SELECT * FROM " + ContactDbConstant.CONTACT_TABALE_NAME;
+        String[] projection = {ContactDbConstant.CONTACT_COLUMN_ID,ContactDbConstant.CONTACT_COLUMN_INCOMING_NO};
+        Cursor cursor = db.query(ContactDbConstant.CONTACT_TABALE_NAME,projection,null,null,null,null,null);
 
-        Cursor cursor = sqLiteDatabase.rawQuery(selectUserQuery,null);
-
-        while (cursor.moveToNext()){
-            NumbarModel numbarModel = new NumbarModel();
-            numbarModel.setId(cursor.getInt(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_ID)));
-            numbarModel.setNumber(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_INCOMING_NO)));
-            numbarModelArrayList.add(numbarModel);
-        }
-        cursor.close();
-
-        return numbarModelArrayList;
+        return cursor;
     }
-
-
-
-
 }

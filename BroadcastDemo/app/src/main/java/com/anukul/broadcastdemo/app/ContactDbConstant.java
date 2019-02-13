@@ -12,8 +12,7 @@ public class ContactDbConstant {
     public static final String CREATE_CONTACT_TABLE =
             "CREATE TABLE " + CONTACT_TABALE_NAME + "("
             + CONTACT_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + CONTACT_COLUMN_INCOMING_NO + " TEXT,"
-            + ")";
+            + CONTACT_COLUMN_INCOMING_NO + " TEXT)";
 
 //CREATE TABLE TABLENAME ( COLUMN_NAME TYPE , COLUMN_NAME TYPE);
 }
