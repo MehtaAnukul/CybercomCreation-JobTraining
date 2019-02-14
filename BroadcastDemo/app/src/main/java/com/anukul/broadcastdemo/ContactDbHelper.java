@@ -10,8 +10,10 @@ import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anukul.broadcastdemo.app.ContactDbConstant;
 
@@ -50,15 +52,18 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
        // contentValues.put(ContactDbConstant.CONTACT_COLUMN_ID,numbarModel.getId());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_INCOMING_NO,number);
+        Log.e("ContentValue","data inserted Start");
         sqLiteDatabase.insert(ContactDbConstant.CONTACT_TABALE_NAME,null,contentValues);
+        Log.e("ContentValue","data inserted");
     }
 
     //read
     public Cursor getAllNumber(SQLiteDatabase db){
-        ArrayList<NumbarModel> numbarModelArrayList = new ArrayList<>();
+
         String[] projection = {ContactDbConstant.CONTACT_COLUMN_ID,ContactDbConstant.CONTACT_COLUMN_INCOMING_NO};
         Cursor cursor = db.query(ContactDbConstant.CONTACT_TABALE_NAME,projection,null,null,null,null,null);
 
         return cursor;
     }
+
 }

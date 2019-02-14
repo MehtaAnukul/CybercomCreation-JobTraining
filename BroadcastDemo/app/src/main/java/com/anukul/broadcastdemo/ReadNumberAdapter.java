@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadNumberAdapter extends RecyclerView.Adapter<ReadNumberAdapter.ReadNumberViewHolder> {
 
-    private ArrayList<NumbarModel> numbarModelArrayList;
+    private List<NumbarModel> numbarModelArrayList;
 
-    public ReadNumberAdapter(ArrayList<NumbarModel> numbarModelArrayList) {
+    public ReadNumberAdapter(List<NumbarModel> numbarModelArrayList) {
         this.numbarModelArrayList = numbarModelArrayList;
     }
 

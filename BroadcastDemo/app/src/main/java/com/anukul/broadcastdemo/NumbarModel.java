@@ -10,10 +10,6 @@ public class NumbarModel {
         this.number = number;
     }
 
-    public NumbarModel() {
-
-    }
-
     public int getId() {
         return id;
     }
