@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/storage_group_title">
+
+        <CheckBoxPreference
+            android:key="pref_delete_old_message"
+            android:title="@string/delete_message_title"
+            android:summary="@string/delete_message_summary"
+            android:defaultValue="true"/>
+        <Preference
+            android:title="@string/text_message_limit_title"
+            android:summary="@string/text_message_limit_summary"
+            android:dependency="pref_delete_old_message"/>
+        <Preference
+            android:title="@string/multimedia_message_limit_title"
+            android:summary="@string/multimedia_message_limit_summary"
+            android:dependency="pref_delete_old_message"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/text_message_group_title">
+
+        <CheckBoxPreference
+            android:key="pref_delivery_reports_sms"
+            android:title="@string/delivery_report_title"
+            android:summary="@string/delivery_report_summary"
+            android:defaultValue="true"/>
+        <Preference
+            android:title="@string/sim_card_message_title"
+            android:summary="@string/sim_card_message_summary"
+            android:dependency="pref_delivery_reports_sms"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/text_multimedia_message_group_title">
+        <CheckBoxPreference
+            android:key="pref_delivery_reports_mms"
+            android:title="@string/delivery_report_title"
+            android:summary="@string/delivery_report_summary"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+</PreferenceScreen>

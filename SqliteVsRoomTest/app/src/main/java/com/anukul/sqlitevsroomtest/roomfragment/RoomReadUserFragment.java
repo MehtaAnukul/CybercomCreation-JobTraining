@@ -25,9 +25,9 @@ import java.util.Comparator;
  */
 public class RoomReadUserFragment extends Fragment {
     private RecyclerView customReadUserRecyclerView;
-    private ArrayList<UserModel> userModelArrayList;
+    private static ArrayList<UserModel> userModelArrayList;
 
-    private RoomReadUserAdapter roomReadUserAdapter;
+    private static RoomReadUserAdapter roomReadUserAdapter;
 
     private FloatingActionButton floatingActionButton;
 
@@ -75,4 +75,12 @@ public class RoomReadUserFragment extends Fragment {
         return view;
     }
 
+
+    public static ArrayList<UserModel> getUserModelArrayList() {
+        return userModelArrayList;
+    }
+
+    public static RoomReadUserAdapter getRoomReadUserAdapter() {
+        return roomReadUserAdapter;
+    }
 }

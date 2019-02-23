@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/ringtone_title_group">
+
+        <Preference
+            android:title="@string/phone_ringtone_title"
+            android:summary="The Horror"/>
+        <CheckBoxPreference
+            android:key="pref_vibrate_when_ring"
+            android:title="@string/vibrate_ringing_title"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/other_callsettings_title_group">
+
+        <PreferenceScreen
+            android:key="pref_voice_mail"
+            android:title="@string/voicemail_title"
+            android:persistent="false">
+            <Preference
+                android:title="@string/service_title"
+                android:summary="@string/service_summary"/>
+            <Preference
+                android:title="@string/setup_title"/>
+            <Preference
+                android:title="@string/ringtone_title"/>
+            <Preference
+                android:title="@string/vibrate_title"
+                android:summary="@string/vibrate_summary"/>
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

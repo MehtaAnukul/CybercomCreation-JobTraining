@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.anukul.sqlitevsroomtest.R;
 import com.anukul.sqlitevsroomtest.roomModel.UserModel;
+import com.anukul.sqlitevsroomtest.sqlite.model.ContactModel;
 
 import java.util.ArrayList;
 
@@ -64,4 +65,9 @@ public class RoomReadUserAdapter extends RecyclerView.Adapter<RoomReadUserAdapte
     }
 
 
+    public void updateList(ArrayList<UserModel> searchUserArraylist) {
+        userModelArrayList = new ArrayList<>();
+        userModelArrayList.addAll(searchUserArraylist);
+        notifyDataSetChanged();
+    }
 }
