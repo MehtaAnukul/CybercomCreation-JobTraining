@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">PreferencesSettingDefaultValue</string>
+    <string name="share">Share</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="text">Settings Using Preferences Example</string>
+
+    //Group setting
+    <string name="storage_group_title">STORAGE</string>
+    <string name="sms_title">TEXT(SMS)MESSAGE</string>
+    <string name="mms_title">MULTIMEDIA(MMS)MESSAGE</string>
+
+    <string name="delete_message_title">Delete old message</string>
+    <string name="delete_message_summary">Delete old message as limits are reached</string>
+
+    <string name="sms_limit_title">Text message limit</string>
+    <string name="sms_limit_summary">500 message per conversation</string>
+
+    <string name="mms_limit_title">Multimedia message limit</string>
+    <string name="mms_limit_summary">500 message per conversation</string>
+
+    <string name="delivery_report_title">Delivery reports</string>
+    <string name="delivery_report_summary">Request a Delivery reports for each messgae you send</string>
+
+
+    <string name="settingsGroup">SettingsGroup</string>
+    
+    <string-array name="message_limit_entries">
+        <item>150 Message/Conversation</item>
+        <item>300 Message/Conversation</item>
+        <item>500 Message/Conversation</item>
+    </string-array>
+    
+    <string-array name="message_limit_value">
+        <item>150</item>
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+    
+    <string name="limit_default_value">500</string>
+
+</resources>
