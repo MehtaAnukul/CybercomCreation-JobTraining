@@ -38,5 +38,7 @@
     </string-array>
     
     <string name="limit_default_value">500</string>
+    <string name="app_settings_value">App_Settings_Value</string>
+    <string name="read_setting">Read Setting</string>
 
 </resources>

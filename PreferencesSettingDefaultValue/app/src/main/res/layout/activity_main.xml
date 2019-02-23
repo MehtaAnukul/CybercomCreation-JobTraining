@@ -9,14 +9,63 @@
 
     <include layout="@layout/toolbar_layout"/>
 
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="@string/app_settings_value"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+        
         <TextView
+            android:id="@+id/activity_main_msgDeleteStatusTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/activity_main_smsDeleteLimitTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/activity_main_mmsDeleteLimitTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/activity_main_smsDeliveryReportTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/activity_main_mmsDeliveryReportTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"/>
+
+        <Button
+            android:id="@+id/activity_main_readSettingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text"
-            android:layout_centerInParent="true"
-            android:textAppearance="?android:textAppearanceMedium"/>
-    </RelativeLayout>
+            android:text="@string/read_setting"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+
+
+    </LinearLayout>
 </LinearLayout>
