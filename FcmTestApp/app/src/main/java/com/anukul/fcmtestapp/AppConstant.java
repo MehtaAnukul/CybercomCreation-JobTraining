@@ -1,4 +1,4 @@
-package com.anukul.notificationdemo;
+package com.anukul.fcmtestapp;
 
 public class AppConstant {
     public static final String KAY_CHANNEL_ID = "personal_notifications" ;
