@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".NotificationActivity">
 
-   <Button
-       android:id="@+id/activity_main_sendRegTokenBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/sendRegToken"
-       android:layout_centerInParent="true"/>
-
+    <TextView
+        android:id="@+id/activity_notification_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"/>
 </RelativeLayout>
