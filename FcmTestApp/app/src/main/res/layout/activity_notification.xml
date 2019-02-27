@@ -10,5 +10,7 @@
         android:id="@+id/activity_notification_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text"/>
+        android:text="@string/newNotification"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:textAppearanceMedium"/>
 </RelativeLayout>

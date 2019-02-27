@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
@@ -38,15 +39,22 @@ public class MyFirebaseInstanceIdService extends FirebaseMessagingService {
         String title = remoteMessage.getNotification().getTitle();
         String message = remoteMessage.getNotification().getBody();
 
-
+        String click_action = remoteMessage.getNotification().getClickAction();
+        //Intent intent = new Intent(click_action);
         Intent intent = new Intent(this,MainActivity.class);
+        if(remoteMessage.getData().size() > 0){
+            String msg = remoteMessage.getData().get("message");
+            Bundle bundle = new Bundle();
+            bundle.putString(AppConstant.KEY_MESSAGE,msg);
+            intent.putExtras(bundle);
+        }
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_sms_notification);
-        //builder.setContentTitle("FCM Notification");
-        //builder.setContentText(remoteMessage.getNotification().getBody());
+       // builder.setContentTitle("FCM Notification");
+       // builder.setContentText(remoteMessage.getNotification().getBody());
         builder.setContentTitle(title);
         builder.setContentText(message);
         builder.setAutoCancel(true);

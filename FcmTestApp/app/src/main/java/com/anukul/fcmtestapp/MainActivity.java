@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,12 +21,15 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private Button sendRegTokenBtn;
+    private TextView msgAppearhereTv;
+    private String message = "No new message";
     String app_server_url = "http://192.168.43.30/fcmtest/fcm_insert.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        msgAppearhereTv = findViewById(R.id.activity_main_msgAppearhereTv);
         sendRegTokenBtn = findViewById(R.id.activity_main_sendRegTokenBtn);
         sendRegTokenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
                 sendRegToken();
             }
         });
+
+        if(getIntent().getExtras() != null){
+            message = getIntent().getExtras().getString(AppConstant.KEY_MESSAGE);
+
+            if(message == null){
+                message = "No new message";
+            }
+        }
+
+        msgAppearhereTv.setText("Message :"+message);
     }
 
     private void sendRegToken() {
@@ -60,6 +74,5 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         MySingleTon.getmInstance(MainActivity.this).addToRequestque(stringRequest);
-
     }
 }

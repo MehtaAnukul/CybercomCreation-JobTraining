@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FcmTestApp</string>
     <string name="sendRegToken">Send Reg Token</string>
+    <string name="newNotification">New Notification</string>
+    <string name="msgApperhere">Message Appear Here</string>
 
 
 </resources>

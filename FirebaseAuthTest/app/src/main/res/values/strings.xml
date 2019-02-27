@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FirebaseAuthTest</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="id">Email Address</string>
+    <string name="password">Password</string>
+    <string name="loginbtn">Login</string>
+    <string name="signUp">"Don't have account? Sign Up"</string>
+    <string name="signup">Signup</string>
+    <string name="Signup">SignUp</string>
+    <string name="Re_password">Confirm Password</string>
+    <string name="login">LogIn</string>
+    <string name="forgot">ForgotPassword</string>
+    <string name="already">Already have an account ?</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phoneNo">Phone No</string>
+    <string name="address">Address</string>
+</resources>
