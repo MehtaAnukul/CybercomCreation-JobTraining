@@ -16,4 +16,7 @@
     <string name="lastName">Last Name</string>
     <string name="phoneNo">Phone No</string>
     <string name="address">Address</string>
+    <string name="updateDetails">Update Details</string>
+    <string name="update">Update</string>
+    <string name="logout">Logout</string>
 </resources>

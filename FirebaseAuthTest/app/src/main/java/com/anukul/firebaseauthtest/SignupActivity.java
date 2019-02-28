@@ -1,5 +1,6 @@
 package com.anukul.firebaseauthtest;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,6 +35,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         passwordEd = findViewById(R.id.activity_signup_passwordEd);
         phoneNoEd = findViewById(R.id.activity_signup_phoneNoEd);
         addressEd = findViewById(R.id.activity_signup_addressEd);
+
+        progressDialog = new ProgressDialog(SignupActivity.this);
 
         signUpBtn = findViewById(R.id.activity_signup_signupbtn);
         loginTv = findViewById(R.id.activity_signup_alreadyAccount);
@@ -76,6 +81,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void userRegistration() {
+        progressDialog.setTitle("SignUp");
+        progressDialog.setMessage("User SignUp Processing...");
+        progressDialog.show();
+
         final String firstName = firstNameEd.getText().toString().trim();
         final String lastName = lastNameEd.getText().toString().trim();
         final String email = emailEd.getText().toString().trim();
@@ -94,7 +103,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                //progressDialog.dismiss();
+                                progressDialog.dismiss();
                                 Toast.makeText(SignupActivity.this, "Successfully signUp... ", Toast.LENGTH_SHORT).show();
                                 insertData(firstName,lastName,email,password,phoneNo,address);
                                 //userDataInsertIntoDatabase(userName,userEmail,userPassword);
@@ -102,7 +111,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                                 Intent gotoLoginActivty = new Intent(SignupActivity.this,LoginActivity.class);
                                 startActivity(gotoLoginActivty);
                             }else {
-                                //progressDialog.dismiss();
+                                progressDialog.dismiss();
                                 Toast.makeText(SignupActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -120,9 +129,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                                 if (databaseError != null){
                                     Toast.makeText(SignupActivity.this, ""+ databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                                 }else {
-                                    //progressDialog.setMessage("Data inserted...wait");
+                                    progressDialog.setMessage("Data inserted...wait");
                                     Toast.makeText(SignupActivity.this, "Data Inserted in Database", Toast.LENGTH_SHORT).show();
-                                    //progressDialog.dismiss();
+                                    progressDialog.dismiss();
                                 }
                             }
                         });

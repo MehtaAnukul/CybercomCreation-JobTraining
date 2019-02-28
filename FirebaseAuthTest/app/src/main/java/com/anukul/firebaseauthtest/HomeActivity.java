@@ -1,9 +1,14 @@
 package com.anukul.firebaseauthtest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,8 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -27,12 +30,21 @@ public class HomeActivity extends AppCompatActivity {
 
     private String userId;
     private ListView listView;
+    private Button updateDetailsBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         listView = findViewById(R.id.listView);
+        updateDetailsBtn = findViewById(R.id.activity_home_updateDetailsBtn);
+        updateDetailsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoUpdateProfileIntent = new Intent(HomeActivity.this,UpdateProfileActivity.class);
+                startActivity(gotoUpdateProfileIntent);
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -100,5 +112,25 @@ public class HomeActivity extends AppCompatActivity {
         if(mAuthListener != null){
             firebaseAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.appbar_menu_logout:
+                firebaseAuth.signOut();
+                final Intent gotoLogin = new Intent(HomeActivity.this,LoginActivity.class);
+                startActivity(gotoLogin);
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }
