@@ -7,18 +7,19 @@ public class UserModel {
     private String password;
     private String phoneNo;
     private String address;
+    private String profileUrl;
 
-    public UserModel(String firstName, String lastName, String email, String password, String phoneNo, String address) {
+    public UserModel() {
+    }
+
+    public UserModel(String firstName, String lastName, String email, String password, String phoneNo, String address, String profileUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNo = phoneNo;
         this.address = address;
-    }
-
-    public UserModel() {
-
+        this.profileUrl = profileUrl;
     }
 
     public String getFirstName() {
@@ -67,5 +68,13 @@ public class UserModel {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 }

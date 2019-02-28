@@ -1,18 +1,20 @@
 package com.anukul.firebaseauthtest;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener{
+public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText firstNameEd;
     private EditText lastNameEd;
     private EditText emailEd;
@@ -37,6 +39,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     private DatabaseReference databaseReferencel;
     private FirebaseDatabase firebaseDatabase;
     private String userId;
+    private ImageView profileImg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +59,10 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
+                if (user != null) {
                     //Toast.makeText(UpdateProfileActivity.this, "Successfully signed "+user.getEmail(), Toast.LENGTH_SHORT).show();
-                }else{
-                   // Toast.makeText(UpdateProfileActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Toast.makeText(UpdateProfileActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -78,7 +82,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     }
 
     private void showData(DataSnapshot dataSnapshot) {
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
             UserModel userModel = new UserModel();
             userModel.setFirstName(ds.child(userId).getValue(UserModel.class).getFirstName());
             userModel.setLastName(ds.child(userId).getValue(UserModel.class).getLastName());
@@ -86,6 +90,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             userModel.setPhoneNo(ds.child(userId).getValue(UserModel.class).getPhoneNo());
             userModel.setAddress(ds.child(userId).getValue(UserModel.class).getAddress());
             //userModel.setFirstName(ds.child(userId).getValue(UserModel.class).getFirstName());
+            userModel.setProfileUrl(ds.child(userId).getValue(UserModel.class).getProfileUrl());
 
             firstNameEd.setText(userModel.getFirstName());
             lastNameEd.setText(userModel.getLastName());
@@ -93,6 +98,12 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             phoneNoEd.setText(userModel.getPhoneNo());
             addressEd.setText(userModel.getAddress());
 
+            Toast.makeText(this, "" + userModel.getProfileUrl(), Toast.LENGTH_SHORT).show();
+            Glide.with(UpdateProfileActivity.this)
+                    .load(userModel.getProfileUrl())
+                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher)
+                    .into(profileImg);
 
         }
     }
@@ -103,7 +114,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         emailEd = findViewById(R.id.activity_updateProfile_emailEd);
         phoneNoEd = findViewById(R.id.activity_updateProfile_phoneNoEd);
         addressEd = findViewById(R.id.activity_updateProfile_addressEd);
-
+        profileImg = findViewById(R.id.activity_updateProfile_icon);
         updateBtn = findViewById(R.id.activity_updateProfile_updateBtn);
 
         updateBtn.setOnClickListener(this);
@@ -112,7 +123,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.activity_updateProfile_updateBtn:
                 updateData();
                 break;
@@ -136,10 +147,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             phoneNoEd.setError("please enter phoneNo");
         } else if (TextUtils.isEmpty(address)) {
             addressEd.setError("please enter address");
-        }
-        else{
+        } else {
             final String uuid = firebaseAuth.getCurrentUser().getUid();
-            if(!uuid.isEmpty()){
+            if (!uuid.isEmpty()) {
                 databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                         .child(uuid).child("firstName").setValue(firstName);
                 databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
@@ -148,7 +158,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                         .child(uuid).child("email").setValue(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                       // Toast.makeText(UpdateProfileActivity.this, "Data Changed. ", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(UpdateProfileActivity.this, "Data Changed. ", Toast.LENGTH_SHORT).show();
                     }
                 });
                 databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
@@ -166,15 +176,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        if(databaseError != null){
+                        if (databaseError != null) {
                             Toast.makeText(UpdateProfileActivity.this, "Error :" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             Toast.makeText(UpdateProfileActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
                 };
-
 
 
             }
@@ -185,16 +194,16 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.appbar_menu,menu);
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.appbar_menu_logout:
                 firebaseAuth.signOut();
-                final Intent gotoLogin = new Intent(UpdateProfileActivity.this,LoginActivity.class);
+                final Intent gotoLogin = new Intent(UpdateProfileActivity.this, LoginActivity.class);
                 startActivity(gotoLogin);
                 finish();
                 break;
