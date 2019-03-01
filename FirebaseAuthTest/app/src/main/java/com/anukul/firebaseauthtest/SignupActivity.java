@@ -78,10 +78,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         passwordEd = findViewById(R.id.activity_signup_passwordEd);
         phoneNoEd = findViewById(R.id.activity_signup_phoneNoEd);
         addressEd = findViewById(R.id.activity_signup_addressEd);
+        imageViewIcon = findViewById(R.id.activity_signup_icon);
 
         progressDialog = new ProgressDialog(SignupActivity.this);
 
-        imageViewIcon = findViewById(R.id.activity_signup_icon);
         signUpBtn = findViewById(R.id.activity_signup_signupbtn);
         loginTv = findViewById(R.id.activity_signup_alreadyAccount);
 
@@ -129,9 +129,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void userRegistration() {
-        progressDialog.setTitle("SignUp");
-        progressDialog.setMessage("User SignUp Processing...");
-        progressDialog.show();
+
 
         final String firstName = firstNameEd.getText().toString().trim();
         final String lastName = lastNameEd.getText().toString().trim();
@@ -141,10 +139,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         final String address = addressEd.getText().toString().trim();
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() ||
-                email.isEmpty() || password.isEmpty() || phoneNo.isEmpty() ||
-                address.isEmpty()) {
+                password.isEmpty() || phoneNo.isEmpty() || address.isEmpty()) {
             Toast.makeText(this, "Please Enter the Details", Toast.LENGTH_SHORT).show();
-            // progressDialog.dismiss();
+             progressDialog.dismiss();
         } else {
 
 
@@ -156,6 +153,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     progressDialog.setMessage("Image Uploading...");
+                                    progressDialog.show();
                                     uploadImage();
 
                                     //userDataInsertIntoDatabase(userName,userEmail,userPassword);
@@ -175,7 +173,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void uploadImage() {
-
 
         final String firstName = firstNameEd.getText().toString().trim();
         final String lastName = lastNameEd.getText().toString().trim();

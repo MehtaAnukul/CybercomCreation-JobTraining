@@ -9,8 +9,6 @@ public class UserModel {
     private String address;
     private String profileUrl;
 
-    public UserModel() {
-    }
 
     public UserModel(String firstName, String lastName, String email, String password, String phoneNo, String address, String profileUrl) {
         this.firstName = firstName;
@@ -20,6 +18,9 @@ public class UserModel {
         this.phoneNo = phoneNo;
         this.address = address;
         this.profileUrl = profileUrl;
+    }
+
+    public UserModel() {
     }
 
     public String getFirstName() {

@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 startActivity(gotoHomeActivity);
                                 finish();
                             } else {
-                                Toast.makeText(LoginActivity.this, "Error" + task.getException(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Email & password invalid " +task.getException() , Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
