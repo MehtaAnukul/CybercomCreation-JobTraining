@@ -47,6 +47,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     private EditText phoneNoEd;
     private EditText addressEd;
 
+    private String password;
+    private String profileUrl;
+
 
     private Button updateBtn;
 
@@ -117,6 +120,9 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             userModel.setAddress(ds.child(userId).getValue(UserModel.class).getAddress());
             userModel.setProfileUrl(ds.child(userId).getValue(UserModel.class).getProfileUrl());
 
+            password = ds.child(userId).getValue(UserModel.class).getPassword();
+            profileUrl = ds.child(userId).getValue(UserModel.class).getProfileUrl();
+
             firstNameEd.setText(userModel.getFirstName());
             lastNameEd.setText(userModel.getLastName());
             emailEd.setText(userModel.getEmail());
@@ -124,10 +130,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             addressEd.setText(userModel.getAddress());
 
             // Toast.makeText(this, "" + userModel.getProfileUrl(), Toast.LENGTH_SHORT).show();
-            int radius = 30;
             Glide.with(UpdateProfileActivity.this)
                     .load(userModel.getProfileUrl())
-                    .transform(new RoundedCorners(radius))
                     .centerCrop()
                     .placeholder(R.mipmap.ic_launcher)
                     .into(profileImg);
@@ -208,8 +212,28 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 uploadImage();
             } else {
                 //progressDialog.dismiss();
+                insertDataWithoutImage();
             }
         }
+    }
+
+    private void insertDataWithoutImage() {
+        final String firstName = firstNameEd.getText().toString();
+        final String lastName = lastNameEd.getText().toString();
+        final String email = emailEd.getText().toString();
+        final String phoneNo = phoneNoEd.getText().toString();
+        final String address = addressEd.getText().toString();
+
+        databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
+                .child(userId).setValue(new UserModel(firstName, lastName, email, password,
+                        phoneNo,address, profileUrl),
+                new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        Toast.makeText(UpdateProfileActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
     private void uploadImage() {
@@ -255,7 +279,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
 
         final String uuid = firebaseAuth.getCurrentUser().getUid();
         if (!uuid.isEmpty()) {
-            databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
+            /*databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("firstName").setValue(firstName);
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("lastName").setValue(lastName);
@@ -272,8 +296,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("address").setValue(address);
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).child("profileUrl").setValue(imgUrl);
-              /*databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
+                    .child(uuid).child("profileUrl").setValue(imgUrl);*/
+              databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).setValue(new UserModel(firstName,lastName,email,phoneNo,address,imgUrl),
                             new DatabaseReference.CompletionListener() {
                                 @Override
@@ -282,19 +306,19 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                                         Toast.makeText(UpdateProfileActivity.this, "" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
                                     } else {
+                                        progressDialog.dismiss();
                                         //progressDialog.setMessage("Data inserted...wait");
                                         Toast.makeText(UpdateProfileActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
-                                        // progressDialog.dismiss();
+
 
                                     }
                                 }
-                            });*/
+                            });
             firstNameEd.setText("");
             lastNameEd.setText("");
             emailEd.setText("");
             phoneNoEd.setText("");
             addressEd.setText("");
-            Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show();
 
             /*new DatabaseReference.CompletionListener() {
                 @Override

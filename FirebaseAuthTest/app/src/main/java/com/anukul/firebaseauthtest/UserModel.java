@@ -20,6 +20,15 @@ public class UserModel {
         this.profileUrl = profileUrl;
     }
 
+    public UserModel(String firstName, String lastName, String email, String phoneNo, String address, String profileUrl) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.address = address;
+        this.profileUrl = profileUrl;
+    }
+
     public UserModel() {
     }
 
