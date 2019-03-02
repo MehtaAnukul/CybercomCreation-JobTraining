@@ -298,7 +298,7 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("profileUrl").setValue(imgUrl);*/
               databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).setValue(new UserModel(firstName,lastName,email,phoneNo,address,imgUrl),
+                    .child(uuid).setValue(new UserModel(firstName,lastName,email,password,phoneNo,address,imgUrl),
                             new DatabaseReference.CompletionListener() {
                                 @Override
                                 public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {

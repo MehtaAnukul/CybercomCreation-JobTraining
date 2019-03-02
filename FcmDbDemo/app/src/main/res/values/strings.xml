@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FcmDbDemo</string>
+    <string name="heading">Heading Appear Here</string>
+    <string name="enterHeading">Enter Heading</string>
+    <string name="submit">Submit</string>
+    <string name="selectColor">Select Font Color</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+</resources>
