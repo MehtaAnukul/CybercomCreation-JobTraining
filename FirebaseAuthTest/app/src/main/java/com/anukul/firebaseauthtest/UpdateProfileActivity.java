@@ -19,11 +19,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,15 +40,9 @@ import java.util.UUID;
 public class UpdateProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText firstNameEd;
     private EditText lastNameEd;
-    private EditText passwordEd;
     private EditText emailEd;
     private EditText phoneNoEd;
     private EditText addressEd;
-
-    private String password;
-    private String profileUrl;
-
-
     private Button updateBtn;
 
     private FirebaseAuth firebaseAuth;
@@ -58,14 +50,14 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
     private DatabaseReference databaseReferencel;
     private FirebaseDatabase firebaseDatabase;
     private String userId;
+    private String profileUrl;
+    private String password;
 
     private ImageView profileImg;
     private Uri filePath;
     FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
-
     private ProgressDialog progressDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,47 +88,35 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             }
         };
 
-        databaseReferencel.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                showData(dataSnapshot);
-            }
+        databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS).child(userId)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        showData(dataSnapshot);
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
     }
 
     private void showData(DataSnapshot dataSnapshot) {
-        for (DataSnapshot ds : dataSnapshot.getChildren()) {
-            UserModel userModel = new UserModel();
-            userModel.setFirstName(ds.child(userId).getValue(UserModel.class).getFirstName());
-            userModel.setLastName(ds.child(userId).getValue(UserModel.class).getLastName());
-            userModel.setEmail(ds.child(userId).getValue(UserModel.class).getEmail());
-            userModel.setPhoneNo(ds.child(userId).getValue(UserModel.class).getPhoneNo());
-            userModel.setAddress(ds.child(userId).getValue(UserModel.class).getAddress());
-            userModel.setProfileUrl(ds.child(userId).getValue(UserModel.class).getProfileUrl());
+        UserModel userModel = dataSnapshot.getValue(UserModel.class);
+        profileUrl = userModel.getProfileUrl();
+        password = userModel.getPassword();
 
-            password = ds.child(userId).getValue(UserModel.class).getPassword();
-            profileUrl = ds.child(userId).getValue(UserModel.class).getProfileUrl();
-
-            firstNameEd.setText(userModel.getFirstName());
-            lastNameEd.setText(userModel.getLastName());
-            emailEd.setText(userModel.getEmail());
-            phoneNoEd.setText(userModel.getPhoneNo());
-            addressEd.setText(userModel.getAddress());
-
-            // Toast.makeText(this, "" + userModel.getProfileUrl(), Toast.LENGTH_SHORT).show();
-            Glide.with(UpdateProfileActivity.this)
-                    .load(userModel.getProfileUrl())
-                    .centerCrop()
-                    .placeholder(R.mipmap.ic_launcher)
-                    .into(profileImg);
-
-        }
+        firstNameEd.setText(userModel.getFirstName());
+        lastNameEd.setText(userModel.getLastName());
+        emailEd.setText(userModel.getEmail());
+        phoneNoEd.setText(userModel.getPhoneNo());
+        addressEd.setText(userModel.getAddress());
+        // Toast.makeText(this, "" + userModel.getProfileUrl(), Toast.LENGTH_SHORT).show();
+        Glide.with(getApplicationContext())
+                .load(userModel.getProfileUrl())
+                .apply(RequestOptions.circleCropTransform())
+                .placeholder(R.mipmap.ic_launcher)
+                .into(profileImg);
     }
 
     private void initView() {
@@ -151,8 +131,6 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         progressDialog = new ProgressDialog(UpdateProfileActivity.this);
         profileImg.setOnClickListener(this);
         updateBtn.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -207,33 +185,8 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         } else if (TextUtils.isEmpty(address)) {
             addressEd.setError("please enter address");
         } else {
-
-            if (filePath != null) {
-                uploadImage();
-            } else {
-                //progressDialog.dismiss();
-                insertDataWithoutImage();
-            }
+            uploadImage();
         }
-    }
-
-    private void insertDataWithoutImage() {
-        final String firstName = firstNameEd.getText().toString();
-        final String lastName = lastNameEd.getText().toString();
-        final String email = emailEd.getText().toString();
-        final String phoneNo = phoneNoEd.getText().toString();
-        final String address = addressEd.getText().toString();
-
-        databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                .child(userId).setValue(new UserModel(firstName, lastName, email, password,
-                        phoneNo,address, profileUrl),
-                new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        Toast.makeText(UpdateProfileActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
     }
 
     private void uploadImage() {
@@ -242,12 +195,11 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
         final String email = emailEd.getText().toString();
         final String phoneNo = phoneNoEd.getText().toString();
         final String address = addressEd.getText().toString();
+        progressDialog.setMessage("Update in progress..");
+        progressDialog.show();
 
         if (filePath != null) {
-            progressDialog.setMessage("Update in progress..");
-            progressDialog.show();
             final StorageReference sref = storageReference.child("profilePics/" + UUID.randomUUID().toString());
-
             sref.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -268,21 +220,18 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
             });
 
         } else {
-            Toast.makeText(this, "Please Select profile Pic", Toast.LENGTH_SHORT).show();
-            progressDialog.dismiss();
+            insertData(firstName, lastName, email, phoneNo, address, profileUrl);
         }
 
     }
 
     private void insertData(String firstName, String lastName, String email,
-                             String phoneNo, String address, String imgUrl) {
+                            String phoneNo, String address, String imgUrl) {
 
         final String uuid = firebaseAuth.getCurrentUser().getUid();
         if (!uuid.isEmpty()) {
             /*databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("firstName").setValue(firstName);
-            databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).child("lastName").setValue(lastName);
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
                     .child(uuid).child("email").setValue(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -290,52 +239,23 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                     progressDialog.dismiss();
                     // Toast.makeText(UpdateProfileActivity.this, "Data Changed. ", Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
             databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).child("phoneNo").setValue(phoneNo);
-            databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).child("address").setValue(address);
-            databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).child("profileUrl").setValue(imgUrl);*/
-              databaseReferencel.child(AppConstant.FIREBASE_NODE_USERS)
-                    .child(uuid).setValue(new UserModel(firstName,lastName,email,password,phoneNo,address,imgUrl),
-                            new DatabaseReference.CompletionListener() {
-                                @Override
-                                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                                    if (databaseError != null) {
-                                        Toast.makeText(UpdateProfileActivity.this, "" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    .child(userId).setValue(new UserModel(firstName, lastName, email, password, phoneNo, address, imgUrl),
+                    new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError != null) {
+                                Toast.makeText(UpdateProfileActivity.this, "" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
-                                    } else {
-                                        progressDialog.dismiss();
-                                        //progressDialog.setMessage("Data inserted...wait");
-                                        Toast.makeText(UpdateProfileActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
-
-
-                                    }
-                                }
-                            });
-            firstNameEd.setText("");
-            lastNameEd.setText("");
-            emailEd.setText("");
-            phoneNoEd.setText("");
-            addressEd.setText("");
-
-            /*new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                    if (databaseError != null) {
-                        Toast.makeText(UpdateProfileActivity.this, "Error :" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(UpdateProfileActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                }
-            };*/
-
-
+                            } else {
+                                Toast.makeText(UpdateProfileActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        }
+                    });
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -354,7 +274,6 @@ public class UpdateProfileActivity extends AppCompatActivity implements View.OnC
                 break;
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override

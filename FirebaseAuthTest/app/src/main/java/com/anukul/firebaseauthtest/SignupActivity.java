@@ -131,8 +131,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void userRegistration() {
-
-
+        UserModel userModel = new UserModel();
         final String firstName = firstNameEd.getText().toString().trim();
         final String lastName = lastNameEd.getText().toString().trim();
         final String email = emailEd.getText().toString().trim();
@@ -140,15 +139,19 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         final String phoneNo = phoneNoEd.getText().toString().trim();
         final String address = addressEd.getText().toString().trim();
 
+        Glide.with(getApplicationContext())
+                .load(userModel.getProfileUrl())
+                .apply(RequestOptions.circleCropTransform())
+                .placeholder(R.mipmap.ic_launcher)
+                .into(imageViewIcon);
+
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() ||
                 password.isEmpty() || phoneNo.isEmpty() || address.isEmpty()) {
             Toast.makeText(this, "Please Enter the Details", Toast.LENGTH_SHORT).show();
              progressDialog.dismiss();
         } else {
 
-
             if (filePath != null) {
-
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -157,9 +160,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                                     progressDialog.setMessage("Image Uploading...");
                                     progressDialog.show();
                                     uploadImage();
-
-                                    //userDataInsertIntoDatabase(userName,userEmail,userPassword);
-
                                 } else {
                                     progressDialog.dismiss();
                                     Toast.makeText(SignupActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
