@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button shareBtn;
     private Button sendBtn;
 
-    //String ANUKUL_ACTION = "android.intent.action.SEND";
+    String ANUKUL_ACTION = "com.anukul.explicitandimplicitappb.ANUKUL_ACTION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void sendMail() {
-        Intent intent = new Intent();
-       intent.setAction(Intent.ACTION_SEND);
+        Intent intent = new Intent(ANUKUL_ACTION);
+//      intent.setAction(Intent.ACTION_SEND);
        // intent.setAction(ANUKUL_ACTION);
         intent.setType("text/plain");
         intent.putExtra("Message","This is a simple message");

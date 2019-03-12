@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.FirebaseApp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        FirebaseApp.initializeApp(this);
         msgAppearhereTv = findViewById(R.id.activity_main_msgAppearhereTv);
         sendRegTokenBtn = findViewById(R.id.activity_main_sendRegTokenBtn);
         sendRegTokenBtn.setOnClickListener(new View.OnClickListener() {

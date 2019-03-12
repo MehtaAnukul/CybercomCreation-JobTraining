@@ -131,6 +131,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void userRegistration() {
+        progressDialog.setTitle("SignUp");
+        progressDialog.setMessage("User SignUp Processing...");
+        progressDialog.show();
+
         UserModel userModel = new UserModel();
         final String firstName = firstNameEd.getText().toString().trim();
         final String lastName = lastNameEd.getText().toString().trim();
@@ -157,8 +161,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    progressDialog.setMessage("Image Uploading...");
-                                    progressDialog.show();
                                     uploadImage();
                                 } else {
                                     progressDialog.dismiss();

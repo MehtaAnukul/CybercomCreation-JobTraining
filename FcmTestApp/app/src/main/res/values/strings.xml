@@ -3,6 +3,8 @@
     <string name="sendRegToken">Send Reg Token</string>
     <string name="newNotification">New Notification</string>
     <string name="msgApperhere">Message Appear Here</string>
+    <string name="title">Message Title</string>
+    <string name="noNewMeg">No New Message</string>
 
 
 </resources>

@@ -16,14 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SharePostActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".SendMailActivity"
+        <activity
+            android:name=".SharePostActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SendMailActivity"
             android:parentActivityName=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <data android:mimeType="text/plain"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="com.anukul.explicitandimplicitdemo.SendMailActivity" />
+
+                <data android:mimeType="text/plain" />
+                <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </activity>
     </application>

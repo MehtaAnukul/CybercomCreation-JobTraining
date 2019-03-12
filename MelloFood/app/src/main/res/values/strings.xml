@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MelloFood</string>
+    <string name="skip">Skip</string>
+    <string name="userName">Username</string>
+    <string name="email">Enter email address or Mobile no.</string>
+    <string name="password">Password</string>
+    <string name="passwordEd">Enter Password</string>
+    <string name="forgotThis">Forgot this ?</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="login">LOG IN</string>
+    <string name="or">OR</string>
+    <string name="loginWithFacebook">LOGIN WITH FACEBOOK</string>
+    <string name="checkBox">I would like to receive promotional emails from Mello</string>
+</resources>
