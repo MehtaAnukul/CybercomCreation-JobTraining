@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    android:theme="@style/AppTheme"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:background="@android:color/black"
     android:id="@+id/toolbar_layout_toolbar"
     android:elevation="8dp">
 

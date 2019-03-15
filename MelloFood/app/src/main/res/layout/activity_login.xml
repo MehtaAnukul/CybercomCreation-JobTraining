@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginActivity"
+    tools:context=".LoginActivity"
     android:background="@drawable/login_bg">
 
     <TextView
+        android:id="@+id/activity_login_skipTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/skip"
@@ -47,6 +48,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/email"
             android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            android:inputType="textEmailAddress"
             android:textColorHint="@color/colorWhite"/>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -60,18 +63,23 @@
                 android:textSize="17dp"
                 android:textColor="@color/colorWhite"/>
             <ImageView
+                android:id="@+id/activty_login_showPasswordIv"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/passwordhide"/>
+                android:src="@drawable/passwordshow"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/activity_login_passwordEd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/passwordEd"
+                android:hint="@string/passwordEd"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="13sp"
+                android:inputType="textPassword"
                 android:textColor="@color/colorWhite"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -94,12 +102,14 @@
         android:layout_marginTop="15dp"
         android:layout_below="@id/activity_login_loginLinearLayout">
         <Button
+            android:id="@+id/activty_login_signupBtn"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_weight="1"
             android:text="@string/signUp"
             android:background="@drawable/left_corner_roundedbtn"/>
         <Button
+            android:id="@+id/activty_login_loginBtn"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_weight="1"
@@ -145,21 +155,22 @@
         android:id="@+id/activity_login_facebookBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="@string/loginWithFacebook"
-        android:background="@drawable/facebookbtn_rounded_corner"
-        android:textColor="@color/colorWhite"
         android:layout_below="@id/activity_login_viewLinearLayout"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/facebookbtn_rounded_corner"
+        android:text="@string/loginWithFacebook"
+        android:textColor="@color/colorWhite" />
     
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkBox"
         android:textColor="@color/colorWhite"
+        android:checked="true"
         android:layout_alignParentBottom="true"
         android:shadowColor="@android:color/holo_orange_light"
-        android:theme="@style/MyCheckBox"/>
+        android:theme="@style/MyCheckBoxTheme"/>
 
 </RelativeLayout>

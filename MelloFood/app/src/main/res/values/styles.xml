@@ -19,7 +19,7 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="MyCheckBox" parent="Theme.AppCompat.NoActionBar">
+    <style name="MyCheckBoxTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorControlNormal">#ffffff</item>   <!-- normal border color change as you wish -->
         <item name="colorControlActivated">#ffffbb33</item> <!-- activated color change as you wish -->
     </style>

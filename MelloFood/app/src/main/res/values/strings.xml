@@ -11,4 +11,17 @@
     <string name="or">OR</string>
     <string name="loginWithFacebook">LOGIN WITH FACEBOOK</string>
     <string name="checkBox">I would like to receive promotional emails from Mello</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="returnTologin">Return to Login</string>
+    <string name="myAccount">My Account</string>
+    <string name="outlets">Outlets</string>
+    <string name="order">Order</string>
+    <string name="paymentMethods">Payment Methods</string>
+    <string name="promotions">Promotions</string>
+    <string name="help">Help</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="aboutUs">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="termsAndConditons">Terms And Conditons</string>
+    <string name="privacyPolicy">Privacy Policy</string>
 </resources>
