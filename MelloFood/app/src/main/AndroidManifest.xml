@@ -23,7 +23,8 @@
             android:name=".LoginActivity"
             android:theme="@style/AppThemeCustom" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".OutletActivity"></activity>
+        <activity android:name=".OutletActivity" />
+        <activity android:name=".MallStallActivity"></activity>
     </application>
 
 </manifest>

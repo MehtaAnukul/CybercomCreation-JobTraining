@@ -24,4 +24,6 @@
     <string name="logout">Logout</string>
     <string name="termsAndConditons">Terms And Conditons</string>
     <string name="privacyPolicy">Privacy Policy</string>
+    <string name="mallStallTitle">Mall Stall Title</string>
+    <string name="newBtn">New</string>
 </resources>

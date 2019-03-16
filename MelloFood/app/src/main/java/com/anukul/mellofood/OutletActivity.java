@@ -65,7 +65,8 @@ public class OutletActivity extends AppCompatActivity implements OutletOnItemCli
     @Override
     public void outletOnItemClick(OutletModel outletModel) {
         Toast.makeText(this, ""+outletModel.getMallName(), Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(this,MallStallActivity.class);
+        startActivity(intent);
     }
 
     @Override
