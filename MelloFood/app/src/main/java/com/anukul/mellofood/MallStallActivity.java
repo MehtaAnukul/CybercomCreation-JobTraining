@@ -1,5 +1,6 @@
 package com.anukul.mellofood;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,13 +21,13 @@ public class MallStallActivity extends AppCompatActivity implements MallStallOnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mall_stall);
 
-        MallStallModel mallStallModel = new MallStallModel();
         toolbar = findViewById(R.id.toolbar_layout_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(mallStallModel.getMallStallName());
+        getSupportActionBar().setTitle("MallStall");
         toolbar.setTitleTextColor(android.graphics.Color.WHITE);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+       // actionBar.setHomeAsUpIndicator(R.color.colorWhite);
 
         mallStallCustomRecyclerView = findViewById(R.id.activity_mallStall_recyclerView);
 
@@ -51,5 +52,7 @@ public class MallStallActivity extends AppCompatActivity implements MallStallOnI
     @Override
     public void mallStallOnItemClick(MallStallModel mallStallModel) {
         Toast.makeText(this, ""+mallStallModel.getMallStallName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,ProductActivity.class);
+        startActivity(intent);
     }
 }

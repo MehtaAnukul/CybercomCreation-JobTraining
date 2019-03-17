@@ -8,6 +8,14 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     android:background="@android:color/black"
     android:id="@+id/toolbar_layout_toolbar"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    app:theme="@style/ToolbarTheme">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toobarTitle"
+        android:layout_gravity="center"
+        android:id="@+id/toolbar_title" />
 
 </android.support.v7.widget.Toolbar>

@@ -26,4 +26,7 @@
     <string name="privacyPolicy">Privacy Policy</string>
     <string name="mallStallTitle">Mall Stall Title</string>
     <string name="newBtn">New</string>
+    <string name="productName">Product Name</string>
+    <string name="productDescription">Product Description</string>
+    <string name="toobarTitle">Toobar Title</string>
 </resources>

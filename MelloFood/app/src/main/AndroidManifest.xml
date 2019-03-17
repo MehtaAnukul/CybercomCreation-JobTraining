@@ -24,7 +24,19 @@
             android:theme="@style/AppThemeCustom" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".OutletActivity" />
-        <activity android:name=".MallStallActivity"></activity>
+        <activity
+            android:name=".MallStallActivity"
+            android:parentActivityName=".OutletActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".OutletActivity" />
+        </activity>
+        <activity android:name=".ProductActivity"
+            android:parentActivityName=".MallStallActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MallStallActivity" />
+        </activity>
     </application>
 
 </manifest>

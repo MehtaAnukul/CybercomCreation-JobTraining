@@ -13,12 +13,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class OutletActivity extends AppCompatActivity implements OutletOnItemClickListener , NavigationView.OnNavigationItemSelectedListener{
     private Toolbar toolbar;
+    private TextView toolbarTitleTv;
     private RecyclerView outletCustomRecyclerView;
     private ArrayList<OutletModel> outletModelArrayList;
     private OutletAdapter outletAdapter;
@@ -33,6 +35,7 @@ public class OutletActivity extends AppCompatActivity implements OutletOnItemCli
         setContentView(R.layout.activity_outlet);
 
         toolbar = findViewById(R.id.toolbar_layout_toolbar);
+        toolbarTitleTv = (TextView)toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("OUTLETS");
         toolbar.setTitleTextColor(android.graphics.Color.WHITE);
