@@ -1,7 +1,9 @@
-package com.anukul.mellofood;
+package com.anukul.mellofood.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.anukul.mellofood.R;
 
 public class MainActivity extends AppCompatActivity {
 

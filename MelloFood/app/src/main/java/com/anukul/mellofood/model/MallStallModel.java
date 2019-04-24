@@ -1,4 +1,4 @@
-package com.anukul.mellofood;
+package com.anukul.mellofood.model;
 
 public class MallStallModel {
     private String mallStallName;
@@ -7,6 +7,10 @@ public class MallStallModel {
     public MallStallModel(String mallStallName, int mallStallImgRes) {
         this.mallStallName = mallStallName;
         this.mallStallImgRes = mallStallImgRes;
+    }
+
+    public MallStallModel(String mallStallName) {
+        this.mallStallName = mallStallName;
     }
 
     public MallStallModel() {

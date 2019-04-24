@@ -58,7 +58,7 @@
                     android:layout_height="35dp"
                     android:layout_marginStart="4dp"
                     android:background="@drawable/new_promotion_rounded_corner"
-                    android:drawableStart="@drawable/promotion"
+                    android:drawableStart="@drawable/ic_flag"
                     android:text="@string/promotions"
                     android:textColor="@android:color/holo_orange_light"
                     android:textSize="10sp" />

@@ -1,4 +1,4 @@
-package com.anukul.mellofood;
+package com.anukul.mellofood.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.anukul.mellofood.AppConstant;
+import com.anukul.mellofood.R;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText emailEd;

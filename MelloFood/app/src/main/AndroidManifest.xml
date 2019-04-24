@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activity.SplashScreenActivity"
             android:theme="@style/AppThemeCustom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,22 +20,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/AppThemeCustom" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".OutletActivity" />
+        <activity android:name=".activity.SignupActivity" />
+        <activity android:name=".activity.OutletActivity" />
         <activity
-            android:name=".MallStallActivity"
-            android:parentActivityName=".OutletActivity">
+            android:name=".activity.MallStallActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activity.OutletActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".OutletActivity" />
+                android:value=".activity.OutletActivity" />
         </activity>
-        <activity android:name=".ProductActivity"
-            android:parentActivityName=".MallStallActivity">
+        <activity
+            android:name=".activity.ProductActivity"
+            android:parentActivityName=".activity.MallStallActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MallStallActivity" />
+                android:value=".activity.MallStallActivity" />
+        </activity>
+        <activity android:name=".activity.OrderActivity"
+            android:parentActivityName=".activity.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.ProductActivity" />
         </activity>
     </application>
 

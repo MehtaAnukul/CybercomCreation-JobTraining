@@ -1,4 +1,4 @@
-package com.anukul.mellofood;
+package com.anukul.mellofood.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.anukul.mellofood.listener.MallStallOnItemClickListener;
+import com.anukul.mellofood.R;
+import com.anukul.mellofood.model.MallStallModel;
 
 import java.util.ArrayList;
 

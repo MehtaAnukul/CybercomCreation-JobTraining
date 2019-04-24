@@ -1,4 +1,4 @@
-package com.anukul.mellofood;
+package com.anukul.mellofood.model;
 
 public class ProductModel {
     private String productName;

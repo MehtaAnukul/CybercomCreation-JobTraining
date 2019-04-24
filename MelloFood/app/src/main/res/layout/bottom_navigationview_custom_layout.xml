@@ -1,43 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ProductActivity">
-
-
-    <include layout="@layout/toolbar_layout" />
-
-    <include layout="@layout/menu_textview_custom_layout" />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/activity_product_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/menu_textview_custom_layout_ll"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/product_custom_layout" />
-
-    <RelativeLayout
-        android:id="@+id/activity_product_popup_container_rl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/menu_textview_custom_layout_ll"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/activity_product_menuPopUp_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/menu_popup_custom_layout" />
-
-    </RelativeLayout>
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <!--
-        <include layout="@layout/bottom_navigationview_custom_layout"/>
--->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomCustom_navigationView"
         android:layout_width="match_parent"
@@ -100,4 +66,5 @@
 
         </LinearLayout>
     </android.support.design.widget.BottomNavigationView>
-    </RelativeLayout>
+-->
+</RelativeLayout>
