@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton redRadioBtn;
     private RadioButton blueRadioBtn;
 
+
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private DatabaseReference mHeadingReference = databaseReference.child("heading");
