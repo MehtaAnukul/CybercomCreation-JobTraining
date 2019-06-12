@@ -58,8 +58,6 @@ public class FirstFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("KEY_NAME","ANUKUL MEHTA");
 
-
-
                 SecondFragment secondFragment = new SecondFragment();
                 secondFragment.setArguments(bundle);
                 FragmentManager fragmentManager = getFragmentManager();

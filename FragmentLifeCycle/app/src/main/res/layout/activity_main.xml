@@ -17,9 +17,6 @@
         android:id="@+id/activity_main_secondFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        >
-
-    </FrameLayout>
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
