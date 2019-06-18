@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showProgressBarNotification() {
         createNotificationChannel();
-        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNET_ID);
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_download);
         builder.setContentTitle("Image Download");
         builder.setContentText("Download in Progress");
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PendingIntent noActivityPendingIntent = PendingIntent.getActivity(this,10,noActivityIntent,PendingIntent.FLAG_ONE_SHOT);
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNET_ID);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,AppConstant.KAY_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_sms_notification);
         builder.setContentTitle("Notification");
         builder.setContentText("Hello how r u");
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String description = "Include all the personal notification";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
-            NotificationChannel notificationChannel = new NotificationChannel(AppConstant.KAY_CHANNET_ID,name,importance);
+            NotificationChannel notificationChannel = new NotificationChannel(AppConstant.KAY_CHANNEL_ID,name,importance);
             notificationChannel.setDescription(description);
 
             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
