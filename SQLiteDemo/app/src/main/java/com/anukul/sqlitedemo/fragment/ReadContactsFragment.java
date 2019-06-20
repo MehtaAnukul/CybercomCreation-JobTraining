@@ -49,7 +49,7 @@ public class ReadContactsFragment extends Fragment {
         customReadContactRecyclerView = view.findViewById(R.id.fragment_readContact_recyclerView);
 
         start_time = System.currentTimeMillis();
-        contactModelArrayList.clear();
+//        contactModelArrayList.clear();
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         contactModelArrayList = contactDbHelper.getAllUser();
         readContactAdapter = new ReadContactAdapter(contactModelArrayList);
