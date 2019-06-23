@@ -52,7 +52,7 @@ public class ReadUserFragment extends Fragment {
         customReadUserRecyclerView.setAdapter(readUserAdapter);
         end_time = System.currentTimeMillis();
         total_time = end_time - start_time;
-        Toast.makeText(getActivity(), total_time+" mili seconds", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), total_time+" mili seconds", Toast.LENGTH_SHORT).show();
 //
 //        for (UserModel userModel : userModels) {
 //            int id = userModel.getId();
