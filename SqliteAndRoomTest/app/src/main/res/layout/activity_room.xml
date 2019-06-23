@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoomActivity"
+    tools:context=".activity.RoomActivity"
     android:id="@+id/activity_room_fragment_contanier">
 
     <include layout="@layout/toolbar_layout"/>

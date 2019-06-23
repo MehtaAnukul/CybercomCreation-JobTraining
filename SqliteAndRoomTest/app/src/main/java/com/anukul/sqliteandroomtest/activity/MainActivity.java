@@ -1,4 +1,4 @@
-package com.anukul.sqliteandroomtest;
+package com.anukul.sqliteandroomtest.activity;
 
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import com.anukul.sqliteandroomtest.roomDatabase.MyAppDatabase;
+import com.anukul.sqliteandroomtest.MainFragment;
+import com.anukul.sqliteandroomtest.R;
+import com.anukul.sqliteandroomtest.SplashFragment;
 
 public class MainActivity extends AppCompatActivity {
 

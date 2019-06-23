@@ -1,4 +1,4 @@
-package com.anukul.sqliteandroomtest.roomfragment;
+package com.anukul.sqliteandroomtest.fragment;
 
 
 import android.os.Bundle;
@@ -13,9 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.anukul.sqliteandroomtest.MainActivity;
 import com.anukul.sqliteandroomtest.R;
-import com.anukul.sqliteandroomtest.RoomActivity;
+import com.anukul.sqliteandroomtest.activity.RoomActivity;
 import com.anukul.sqliteandroomtest.roomModel.UserModel;
 
 

@@ -1,4 +1,4 @@
-package com.anukul.sqliteandroomtest.roomfragment;
+package com.anukul.sqliteandroomtest.fragment;
 
 
 import android.os.Bundle;

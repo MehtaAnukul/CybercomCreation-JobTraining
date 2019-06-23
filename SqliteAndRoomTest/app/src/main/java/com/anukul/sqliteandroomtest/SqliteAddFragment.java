@@ -14,6 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.anukul.sqliteandroomtest.ContactDbHelper;
+
+import com.anukul.sqliteandroomtest.ContactModel;
+import com.anukul.sqliteandroomtest.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,9 +87,8 @@ public class SqliteAddFragment extends Fragment implements View.OnClickListener 
             ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-            for (int i = 0; i < 30; i++) {
-                contactDbHelper.insertContact(new ContactModel(fName, lName, phoneNo, email), sqLiteDatabase);
-            }
+            for (int i = 0; i < 30; i++)
+                contactDbHelper.insertContact(new ContactModel(fName,lName,phoneNo,email), sqLiteDatabase);
             contactDbHelper.close();
             fNameEd.setText("");
             lNameEd.setText("");

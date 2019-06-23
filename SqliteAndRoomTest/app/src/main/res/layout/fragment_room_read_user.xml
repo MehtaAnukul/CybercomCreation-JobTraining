@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="70dp"
     android:layout_marginLeft="10dp"
-    tools:context=".roomfragment.RoomReadUserFragment">
+    tools:context=".fragment.RoomReadUserFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

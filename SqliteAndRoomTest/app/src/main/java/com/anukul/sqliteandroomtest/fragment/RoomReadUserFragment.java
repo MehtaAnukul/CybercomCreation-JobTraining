@@ -1,4 +1,4 @@
-package com.anukul.sqliteandroomtest.roomfragment;
+package com.anukul.sqliteandroomtest.fragment;
 
 
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.anukul.sqliteandroomtest.R;
-import com.anukul.sqliteandroomtest.RoomActivity;
+import com.anukul.sqliteandroomtest.activity.RoomActivity;
 import com.anukul.sqliteandroomtest.roomAdapter.RoomReadUserAdapter;
 import com.anukul.sqliteandroomtest.roomModel.UserModel;
 

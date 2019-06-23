@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SqliteActivity"
+    tools:context=".activity.SqliteActivity"
     android:id="@+id/activity_sqlite_fragment_contanier">
 
     <include layout="@layout/toolbar_layout"/>

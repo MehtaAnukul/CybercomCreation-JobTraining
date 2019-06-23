@@ -1,4 +1,4 @@
-package com.anukul.sqliteandroomtest;
+package com.anukul.sqliteandroomtest.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.anukul.sqliteandroomtest.R;
+import com.anukul.sqliteandroomtest.SqliteAddFragment;
+import com.anukul.sqliteandroomtest.SqliteHomeFragment;
+import com.anukul.sqliteandroomtest.SqliteReadContactFragment;
 import com.anukul.sqliteandroomtest.listener.OnDbOprationListener;
 
 public class SqliteActivity extends AppCompatActivity implements OnDbOprationListener {
