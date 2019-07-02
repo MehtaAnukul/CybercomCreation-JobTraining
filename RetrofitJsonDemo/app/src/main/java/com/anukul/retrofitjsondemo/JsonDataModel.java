@@ -1,6 +1,6 @@
 package com.anukul.retrofitjsondemo;
 
-import com.google.gson.annotations.SerializedName;
+
 
 public class JsonDataModel {
     //jsonData and your model class variable same name bcz
