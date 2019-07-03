@@ -15,8 +15,5 @@ public interface MoviesApi {
     @GET("movies")
     Call<List<MovieModel>> getMovies();
 
-    /*Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();*/
+
 }

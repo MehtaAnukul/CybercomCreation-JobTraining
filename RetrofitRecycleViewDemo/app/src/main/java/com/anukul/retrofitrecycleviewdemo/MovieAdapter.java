@@ -21,9 +21,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private ItemClickListener itemClickListener;
     private Context context;
 
-    public MovieAdapter(ArrayList<MovieModel> movieModelArrayList, ItemClickListener itemClickListener) {
+    public MovieAdapter(ArrayList<MovieModel> movieModelArrayList, Context context) {
+        this.movieModelArrayList = movieModelArrayList;
+        this.context = context;
+    }
+
+    public MovieAdapter(ArrayList<MovieModel> movieModelArrayList, ItemClickListener itemClickListener, Context context) {
         this.movieModelArrayList = movieModelArrayList;
         this.itemClickListener = itemClickListener;
+        this.context = context;
     }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -71,9 +77,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             textViewVotesCount.setText(movieModel.getVote_count());
             textViewIsNew.setText(movieModel.getIs_new());
 
-            Glide.with(context)
+            /*Glide.with(context)
                     .load(movieModel.getImage())
-                    .into(imageView);
+                    .into(imageView);*/
         }
     }
 

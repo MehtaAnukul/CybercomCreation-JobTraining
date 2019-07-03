@@ -10,12 +10,17 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity implements ItemClickListener{
@@ -29,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
         moviesCustomRecyclerView = findViewById(R.id.activity_main_recyclerView);
 
-        movieModelArrayList = new ArrayList<>();
+      /*  movieModelArrayList = new ArrayList<>();
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","English",""));
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","Hindi",""));
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","English",""));
@@ -41,16 +46,62 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","Japaneess",""));
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","English",""));
         movieModelArrayList.add(new MovieModel("1",R.drawable.captain_marvel,"true","UA","73","2300","Captain Marvel","English",""));
-
-        movieAdapter = new MovieAdapter(movieModelArrayList,this);
+*/
+        //movieAdapter = new MovieAdapter(movieModelArrayList,this,this);
 
         RecyclerView.LayoutManager customlayoutManager = new LinearLayoutManager(this);
         moviesCustomRecyclerView.setLayoutManager(customlayoutManager);
-        moviesCustomRecyclerView.setAdapter(movieAdapter);
+
+
+        getData();
+    }
+
+    private void getData() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(MoviesApi.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        MoviesApi moviesApi = retrofit.create(MoviesApi.class);
+
+        Call<List<MovieModel>> movieModelCall = moviesApi.getMovies();
+
+        movieModelCall.enqueue(new Callback<List<MovieModel>>() {
+            @Override
+            public void onResponse(Call<List<MovieModel>> call, Response<List<MovieModel>> response) {
+                MovieModel movieModel = (MovieModel) response.body();
+
+
+                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<MovieModel>> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Error Occured", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public void onItemClick(MovieModel movieModel, View v) {
+
         Toast.makeText(this, ""+movieModel.getLanguage(), Toast.LENGTH_SHORT).show();
+
+        switch (v.getId()){
+            case R.id.custom_layout_textViewIsNew:
+                Toast.makeText(this, ""+movieModel.getIs_new(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.custom_layout_textViewLanguage:
+                Toast.makeText(this, ""+movieModel.getLanguage(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.custom_layout_textViewLikePercent:
+                Toast.makeText(this, ""+movieModel.getLike_percent(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.custom_layout_textViewRating:
+                Toast.makeText(this, ""+movieModel.getRating(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.custom_layout_textViewTitle:
+                Toast.makeText(this, ""+movieModel.getTitle(), Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
