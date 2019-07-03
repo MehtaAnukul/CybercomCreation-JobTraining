@@ -1,5 +1,6 @@
 package com.anukul.receivedatajson;
 
+
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -21,6 +22,8 @@ public class FetchDataBGTask extends AsyncTask<Void,Void,Void> {
 
     String singleParsed = "";
     String parsedData = "";
+
+
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -59,8 +62,17 @@ public class FetchDataBGTask extends AsyncTask<Void,Void,Void> {
     }
 
     @Override
+    protected void onPreExecute() {
+        MainActivity.progressDialog.setMessage("Please wait...");
+        MainActivity.progressDialog.show();
+        super.onPreExecute();
+    }
+
+    @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         MainActivity.jsonDataTv.setText(this.parsedData);
+        MainActivity.progressDialog.dismiss();
+
     }
 }

@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private Button clickBtn;
     public static TextView jsonDataTv;
 
-    private ProgressDialog progressDialog;
+    public static ProgressDialog progressDialog;
 
     private FetchDataBGTask fetchDataBGTask;
 
