@@ -10,9 +10,9 @@ import retrofit2.http.GET;
 public interface MoviesApi {
     //https://simplifiedcoding.net/demos/marvel/
     //get request
-    String BASE_URL = "https://www.simplifiedcoding.in/course-api/";
+    String BASE_URL = "https://simplifiedcoding.net/demos/";
 
-    @GET("movies")
+    @GET("marvel")
     Call<List<MovieModel>> getMovies();
 
 

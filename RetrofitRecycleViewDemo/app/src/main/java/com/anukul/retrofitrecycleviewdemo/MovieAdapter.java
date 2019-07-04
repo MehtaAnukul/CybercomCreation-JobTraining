@@ -11,28 +11,24 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private ArrayList<MovieModel> movieModelArrayList;
-    private ItemClickListener itemClickListener;
+    private List<MovieModel> movieModelList;
+    private int rowLayout;
     private Context context;
 
-    public MovieAdapter(ArrayList<MovieModel> movieModelArrayList, Context context) {
-        this.movieModelArrayList = movieModelArrayList;
+    public MovieAdapter(List<MovieModel> movieModelList, int rowLayout, Context context) {
+        this.movieModelList = movieModelList;
+        this.rowLayout = rowLayout;
         this.context = context;
     }
 
-    public MovieAdapter(ArrayList<MovieModel> movieModelArrayList, ItemClickListener itemClickListener, Context context) {
-        this.movieModelArrayList = movieModelArrayList;
-        this.itemClickListener = itemClickListener;
-        this.context = context;
-    }
-
-    public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MovieViewHolder extends RecyclerView.ViewHolder  {
         TextView textViewIsNew;
         TextView textViewRating;
         ImageView imageViewLike;
@@ -56,30 +52,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             textViewLanguage = itemView.findViewById(R.id.custom_layout_textViewLanguage);
             textViewType = itemView.findViewById(R.id.custom_layout_textViewType);
 
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
         }
 
-        @Override
+       /* @Override
         public void onClick(View view) {
             if(itemClickListener != null){
                 itemClickListener.onItemClick(movieModel,view);
             }
-        }
+        }*/
 
         public void setData(MovieModel data) {
             this.movieModel = data;
 
-            textViewTitle.setText(movieModel.getTitle());
-            textViewLanguage.setText(movieModel.getLanguage());
-            textViewType.setText(movieModel.getType());
-            textViewRating.setText(movieModel.getRating());
-            textViewLikePercent.setText(movieModel.getLike_percent());
-            textViewVotesCount.setText(movieModel.getVote_count());
-            textViewIsNew.setText(movieModel.getIs_new());
+            textViewTitle.setText(movieModel.getName());
+            textViewLanguage.setText(movieModel.getRealname());
 
-            /*Glide.with(context)
-                    .load(movieModel.getImage())
-                    .into(imageView);*/
+            Glide.with(context)
+                    .load(movieModel.getImageurl())
+                    .placeholder(R.drawable.ic_like)
+                    .into(imageView);
         }
     }
 
@@ -93,14 +85,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int i) {
-        MovieModel movieModel = movieModelArrayList.get(i);
+        MovieModel movieModel = movieModelList.get(i);
 
         movieViewHolder.setData(movieModel);
     }
 
     @Override
     public int getItemCount() {
-        return movieModelArrayList.size();
+        return movieModelList.size();
     }
 
 }
