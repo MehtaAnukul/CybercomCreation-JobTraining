@@ -12,7 +12,7 @@ import com.anukul.sqlitedemo.fragment.HomeFragment;
 import com.anukul.sqlitedemo.fragment.ReadContactsFragment;
 import com.anukul.sqlitedemo.fragment.UpdateFragment;
 import com.anukul.sqlitedemo.listener.OnDbOprationListener;
-import com.facebook.stetho.Stetho;
+//import com.facebook.stetho.Stetho;
 
 public class MainActivity extends AppCompatActivity implements OnDbOprationListener {
     private FragmentManager fragmentManager;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements OnDbOprationListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Stetho.initializeWithDefaults(this);
+        //Stetho.initializeWithDefaults(this);
 
         fragmentManager = getSupportFragmentManager();
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_login_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/Login"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/avtar" />
+
+        <LinearLayout
+            android:id="@+id/activity_signUp_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/activity_login_emailEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Email"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/activity_login_passwordEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textAppearance="?android:textAppearanceMedium" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/activity_login_loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_login_linearlayout"
+        android:padding="20dp"
+        android:text="@string/LoginBtn"/>
+    <TextView
+        android:id="@+id/activity_login_signUpTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Donot"
+        android:layout_below="@id/activity_login_loginBtn"
+        android:textAlignment="center"
+        android:textAppearance="?android:textAppearanceSmall"/>
+</RelativeLayout>
