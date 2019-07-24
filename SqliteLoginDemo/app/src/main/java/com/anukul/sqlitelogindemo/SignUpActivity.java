@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 insertContact();
                 break;
             case R.id.activity_signUp_loginTv:
-                final Intent intent = new Intent(this,LoginActivity.class);
+                final Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
                 startActivity(intent);
                 break;
         }

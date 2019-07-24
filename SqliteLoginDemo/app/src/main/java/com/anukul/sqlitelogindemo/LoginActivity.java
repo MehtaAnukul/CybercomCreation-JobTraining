@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,9 +61,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String loginEmail = loginEmailEd.getText().toString().trim();
         String loginPassword = loginPasswordEd.getText().toString().trim();
 
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + ContactDbConstant.CONTACT_TABALE_NAME+ " WHERE " + ContactDbConstant.CONTACT_COLUMN_EMAIL + "=? AND " + ContactDbConstant.CONTACT_COLUMN_PASSWORD + "=?", new String[]{loginEmail,loginPassword} );
+
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + ContactDbConstant.CONTACT_TABALE_NAME + " WHERE " + ContactDbConstant.CONTACT_COLUMN_EMAIL + "=? AND " + ContactDbConstant.CONTACT_COLUMN_PASSWORD + "=?" , new String[]{loginEmail,loginPassword});
+        Log.e("LoginActivity",""+cursor);
         if(cursor != null){
             if(cursor.getCount() > 0){
+                cursor.moveToNext();
                 Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
