@@ -68,11 +68,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(cursor.getCount() > 0){
                 cursor.moveToNext();
                 Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
+                final Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
             }
         }
-
+        loginEmailEd.setText("");
+        loginPasswordEd.setText("");
 
     }
 }

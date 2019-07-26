@@ -69,6 +69,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
             contactModel.setId(cursor.getInt(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_ID)));
             contactModel.setName(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_NAME)));
             contactModel.setEmail(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_EMAIL)));
+            contactModel.setPhoneNo(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_PHONE)));
             contactModelArrayList.add(contactModel);
         }
         return contactModelArrayList;
@@ -79,6 +80,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getName());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE,contactModel.getPhoneNo());
 
         String selection = ContactDbConstant.CONTACT_COLUMN_ID+ " = "+id;
 

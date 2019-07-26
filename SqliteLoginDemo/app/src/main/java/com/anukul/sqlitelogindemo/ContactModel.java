@@ -25,6 +25,13 @@ public class ContactModel {
         this.password = password;
     }
 
+    public ContactModel(int id, String name, String phoneNo, String email) {
+        this.id = id;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
