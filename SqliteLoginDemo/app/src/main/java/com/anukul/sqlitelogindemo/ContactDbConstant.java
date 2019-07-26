@@ -16,7 +16,7 @@ public class ContactDbConstant {
             + CONTACT_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + CONTACT_COLUMN_NAME + " TEXT,"
             + CONTACT_COLUMN_PHONE + " TEXT,"
-            + CONTACT_COLUMN_EMAIL + " TEXT"
+            + CONTACT_COLUMN_EMAIL + " TEXT,"
             + CONTACT_COLUMN_PASSWORD + " TEXT"
             + ")";
 

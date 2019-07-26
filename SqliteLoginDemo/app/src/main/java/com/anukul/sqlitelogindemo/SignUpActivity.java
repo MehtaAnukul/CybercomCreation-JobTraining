@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
+
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText nameEd;
@@ -25,6 +27,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        Stetho.initializeWithDefaults(this);
 
         initView();
     }
@@ -54,7 +58,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
     private void insertContact() {
-//        int conteactId = Integer.parseInt(contactIdEd.getText().toString().trim());
+       // int conteactId = Integer.parseInt(contactIdEd.getText().toString().trim());
 
         String name = nameEd.getText().toString().trim();
         String phone = phoneEd.getText().toString().trim();
