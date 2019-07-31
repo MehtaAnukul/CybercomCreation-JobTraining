@@ -45,6 +45,12 @@
         android:layout_height="wrap_content"
         android:text="@string/phoneNo"
         android:layout_margin="2dp"/>
+    <TextView
+        android:id="@+id/custom_layout_genderTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:layout_margin="2dp"/>
 
 
 </LinearLayout>

@@ -86,6 +86,27 @@
                     android:inputType="textPassword"
                     android:textAlignment="center"
                     android:textAppearance="?android:textAppearanceMedium" />
+                <RadioGroup
+                    android:id="@+id/activity_signUp_radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/activity_signUp_maleRb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/male"/>
+
+                    <RadioButton
+                        android:id="@+id/activity_signUp_femaleRb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female" />
+                </RadioGroup>
+
 
 
 

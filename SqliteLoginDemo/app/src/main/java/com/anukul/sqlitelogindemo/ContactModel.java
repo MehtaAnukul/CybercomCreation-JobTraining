@@ -7,33 +7,37 @@ public class ContactModel {
     private String phoneNo;
     private String email;
     private String password;
+    private String gender;
 
-    public ContactModel(int id, String name, String lastName, String phoneNo, String email, String password) {
+    public ContactModel(int id, String name, String lastName, String phoneNo, String email, String password, String gender) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
         this.password = password;
+        this.gender = gender;
     }
 
     public ContactModel() {
     }
 
-    public ContactModel(String name, String lastName, String phoneNo, String email, String password) {
+    public ContactModel(String name, String lastName, String phoneNo, String email, String password, String gender) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
         this.password = password;
+        this.gender = gender;
     }
 
-    public ContactModel(int id, String name, String lastName, String phoneNo, String email) {
+    public ContactModel(int id, String name, String lastName, String phoneNo, String email, String gender) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -82,6 +86,14 @@ public class ContactModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
 

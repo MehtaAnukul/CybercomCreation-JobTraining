@@ -8,20 +8,24 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
 
     private EditText nameEd;
     private EditText lastNameEd;
     private EditText phoneEd;
     private EditText emailEd;
     private EditText passwordEd;
+    private RadioGroup radioGroup;
     private Button signUpBtn;
     private TextView loginTv;
+    private String gender;
 
     SQLiteDatabase sqLiteDatabase;
     @Override
@@ -39,11 +43,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         phoneEd = findViewById(R.id.activity_signUp_phoneEd);
         emailEd = findViewById(R.id.activity_signUp_emailEd);
         passwordEd = findViewById(R.id.activity_signUp_passwordEd);
+        radioGroup = findViewById(R.id.activity_signUp_radioGroup);
         signUpBtn = findViewById(R.id.activity_signUp_signUpBtn);
         loginTv = findViewById(R.id.activity_signUp_loginTv);
 
        loginTv.setOnClickListener(this);
        signUpBtn.setOnClickListener(this);
+
+       radioGroup.setOnCheckedChangeListener(this);
 
     }
 
@@ -88,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             ContactDbHelper contactDbHelper = new ContactDbHelper(this);
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-            contactDbHelper.insertContact(new ContactModel(name,lastName,phone,email,password), sqLiteDatabase);
+            contactDbHelper.insertContact(new ContactModel(name,lastName,phone,email,password,gender), sqLiteDatabase);
 
 
             contactDbHelper.close();
@@ -101,5 +108,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
              Toast.makeText(this, "Contact saved sucessfully", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        final RadioButton radioButton = findViewById(radioGroup.getCheckedRadioButtonId());
+
+        if (radioButton.getText().equals("Male")) {
+            gender = radioButton.getText().toString();
+            Toast.makeText(this, "Male"+gender, Toast.LENGTH_SHORT).show();
+        } else if (radioButton.getText().equals("Female")){
+            gender = radioButton.getText().toString();
+            Toast.makeText(this, "Female"+gender, Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(this, "" + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 }

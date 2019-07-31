@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.anukul.sqlitelogindemo.ContactDbHelper;
@@ -21,13 +23,16 @@ import com.anukul.sqlitelogindemo.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpdateFragment extends Fragment implements View.OnClickListener {
+public class UpdateFragment extends Fragment implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
     private EditText updateContactId ;
     private EditText updateNameEd;
     private EditText updateLastNameEd;
     private EditText updateEmailEd;
     private EditText updatePhoneNoEd;
+    private RadioGroup updateRadioGroup;
+    private RadioButton radioButton;
     private Button updateBtn;
+    private String gender;
 
     SQLiteDatabase sqLiteDatabase;
 
@@ -53,9 +58,12 @@ public class UpdateFragment extends Fragment implements View.OnClickListener {
         updateLastNameEd = view.findViewById(R.id.fragment_update_lastNameEd);
         updateEmailEd = view.findViewById(R.id.fragment_update_emailEd);
         updatePhoneNoEd = view.findViewById(R.id.fragment_update_phoneNoEd);
+        updateRadioGroup = view.findViewById(R.id.fragment_update_radioGroup);
+        radioButton = view.findViewById(updateRadioGroup.getCheckedRadioButtonId());
         updateBtn = view.findViewById(R.id.fragment_update_updateBtn);
 
         updateBtn.setOnClickListener(this);
+        updateRadioGroup.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -77,7 +85,7 @@ public class UpdateFragment extends Fragment implements View.OnClickListener {
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-        contactDbHelper.updateContacts(new ContactModel(id,name,lastName,phoneNo,email),id);
+        contactDbHelper.updateContacts(new ContactModel(id,name,lastName,phoneNo,email,gender),id);
         contactDbHelper.close();
 
         Toast.makeText(getActivity(), "Contact Updated", Toast.LENGTH_SHORT).show();
@@ -86,5 +94,19 @@ public class UpdateFragment extends Fragment implements View.OnClickListener {
         updateLastNameEd.setText("");
         updateEmailEd.setText("");
         updatePhoneNoEd.setText("");
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        //final RadioButton radioButton = findViewById(radioGroup.getCheckedRadioButtonId());
+
+        if (radioButton.getText().equals("Male")) {
+            gender = radioButton.getText().toString();
+            Toast.makeText(getActivity(), "Male"+gender, Toast.LENGTH_SHORT).show();
+        } else if (radioButton.getText().equals("Female")){
+            gender = radioButton.getText().toString();
+            Toast.makeText(getActivity(), "Female"+gender, Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(getActivity(), "" + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 }

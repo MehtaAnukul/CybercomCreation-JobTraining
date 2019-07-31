@@ -11,6 +11,7 @@ public class ContactDbConstant {
     public static final String CONTACT_COLUMN_PHONE = "phone";
     public static final String CONTACT_COLUMN_EMAIL = "email";
     public static final String CONTACT_COLUMN_PASSWORD = "password";
+    public static final String CONTACT_COLUMN_GENDER = "gender";
 
     public static final String CREATE_CONTACT_TABLE =
             "CREATE TABLE " + CONTACT_TABALE_NAME + "("
@@ -19,7 +20,8 @@ public class ContactDbConstant {
             + CONTACT_COLUMN_LASTNAME + " TEXT,"
             + CONTACT_COLUMN_PHONE + " TEXT,"
             + CONTACT_COLUMN_EMAIL + " TEXT,"
-            + CONTACT_COLUMN_PASSWORD + " TEXT"
+            + CONTACT_COLUMN_PASSWORD + " TEXT,"
+            + CONTACT_COLUMN_GENDER + " TEXT"
             + ")";
 
 //CREATE TABLE TABLENAME ( COLUMN_NAME TYPE , COLUMN_NAME TYPE);

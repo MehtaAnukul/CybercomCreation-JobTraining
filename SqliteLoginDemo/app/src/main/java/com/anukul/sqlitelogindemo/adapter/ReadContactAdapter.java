@@ -26,6 +26,7 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
         TextView lastName;
         TextView email;
         TextView phoneNo;
+        TextView gender;
         public ReadUserViewHolder(View itemView) {
             super(itemView);
 
@@ -34,6 +35,7 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
             lastName = itemView.findViewById(R.id.custom_layout_lastNameTv);
             email = itemView.findViewById(R.id.custom_layout_emailTv);
             phoneNo = itemView.findViewById(R.id.custom_layout_phoneTv);
+            gender = itemView.findViewById(R.id.custom_layout_genderTv);
         }
     }
     @NonNull
@@ -53,6 +55,7 @@ public class ReadContactAdapter extends RecyclerView.Adapter<ReadContactAdapter.
         holder.lastName.setText("LastName : "+contactModel.getLastName());
         holder.email.setText("Email : "+contactModel.getEmail());
         holder.phoneNo.setText("PhoneNo : "+contactModel.getPhoneNo());
+        holder.gender.setText("Gender : "+contactModel.getGender());
 
     }
 

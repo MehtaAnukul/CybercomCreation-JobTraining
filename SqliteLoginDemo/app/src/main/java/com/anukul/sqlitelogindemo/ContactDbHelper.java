@@ -42,6 +42,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE,contactModel.getPhoneNo());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PASSWORD,contactModel.getPassword());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_GENDER,contactModel.getGender());
 
         return sqLiteDatabase.insert(ContactDbConstant.CONTACT_TABALE_NAME,null,contentValues);
        // Log.d("Database Operations","One row inserted Created");
@@ -72,6 +73,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
             contactModel.setLastName(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_LASTNAME)));
             contactModel.setEmail(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_EMAIL)));
             contactModel.setPhoneNo(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_PHONE)));
+            contactModel.setGender(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_GENDER)));
             contactModelArrayList.add(contactModel);
         }
         return contactModelArrayList;
@@ -84,6 +86,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_LASTNAME,contactModel.getLastName());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE,contactModel.getPhoneNo());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_GENDER,contactModel.getGender());
 
         String selection = ContactDbConstant.CONTACT_COLUMN_ID+ " = "+id;
 
