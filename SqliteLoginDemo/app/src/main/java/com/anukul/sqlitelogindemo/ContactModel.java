@@ -3,13 +3,15 @@ package com.anukul.sqlitelogindemo;
 public class ContactModel {
     private int id;
     private String name;
+    private String lastName;
     private String phoneNo;
     private String email;
     private String password;
 
-    public ContactModel(int id, String name, String phoneNo, String email, String password) {
+    public ContactModel(int id, String name, String lastName, String phoneNo, String email, String password) {
         this.id = id;
         this.name = name;
+        this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
         this.password = password;
@@ -18,16 +20,18 @@ public class ContactModel {
     public ContactModel() {
     }
 
-    public ContactModel(String name, String phoneNo, String email, String password) {
+    public ContactModel(String name, String lastName, String phoneNo, String email, String password) {
         this.name = name;
+        this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
         this.password = password;
     }
 
-    public ContactModel(int id, String name, String phoneNo, String email) {
+    public ContactModel(int id, String name, String lastName, String phoneNo, String email) {
         this.id = id;
         this.name = name;
+        this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.email = email;
     }
@@ -46,6 +50,14 @@ public class ContactModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNo() {
@@ -72,3 +84,4 @@ public class ContactModel {
         this.password = password;
     }
 }
+

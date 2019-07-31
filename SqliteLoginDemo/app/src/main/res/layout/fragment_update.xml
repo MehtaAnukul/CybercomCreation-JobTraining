@@ -32,6 +32,13 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp" />
         <EditText
+            android:id="@+id/fragment_update_lastNameEd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lastName"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp" />
+        <EditText
             android:id="@+id/fragment_update_emailEd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

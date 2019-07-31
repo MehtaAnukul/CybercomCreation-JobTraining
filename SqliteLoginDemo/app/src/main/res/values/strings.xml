@@ -25,6 +25,7 @@
     <string name="addNewContact">Add New Contact</string>
     <string name="contactID">Contact ID</string>
     <string name="name">Name</string>
+    <string name="lastName">LastName</string>
     <string name="email">Email</string>
     <string name="save">SAVE</string>
     <string name="helloworld">Hello World....</string>

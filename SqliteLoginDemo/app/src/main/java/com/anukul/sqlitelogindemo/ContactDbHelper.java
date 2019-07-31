@@ -38,6 +38,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getName());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_LASTNAME,contactModel.getLastName());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE,contactModel.getPhoneNo());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PASSWORD,contactModel.getPassword());
@@ -68,6 +69,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
             ContactModel contactModel = new ContactModel();
             contactModel.setId(cursor.getInt(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_ID)));
             contactModel.setName(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_NAME)));
+            contactModel.setLastName(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_LASTNAME)));
             contactModel.setEmail(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_EMAIL)));
             contactModel.setPhoneNo(cursor.getString(cursor.getColumnIndex(ContactDbConstant.CONTACT_COLUMN_PHONE)));
             contactModelArrayList.add(contactModel);
@@ -79,6 +81,7 @@ public class ContactDbHelper extends SQLiteOpenHelper {
     public void updateContacts(ContactModel contactModel,int id){
         ContentValues contentValues = new ContentValues();
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_NAME,contactModel.getName());
+        contentValues.put(ContactDbConstant.CONTACT_COLUMN_LASTNAME,contactModel.getLastName());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_EMAIL,contactModel.getEmail());
         contentValues.put(ContactDbConstant.CONTACT_COLUMN_PHONE,contactModel.getPhoneNo());
 

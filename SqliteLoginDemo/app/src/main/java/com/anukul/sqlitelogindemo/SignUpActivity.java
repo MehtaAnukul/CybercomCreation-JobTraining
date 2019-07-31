@@ -16,6 +16,7 @@ import com.facebook.stetho.Stetho;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText nameEd;
+    private EditText lastNameEd;
     private EditText phoneEd;
     private EditText emailEd;
     private EditText passwordEd;
@@ -34,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
     private void initView() {
         nameEd = findViewById(R.id.activity_signUp_nameEd);
+        lastNameEd = findViewById(R.id.activity_signUp_lastNameEd);
         phoneEd = findViewById(R.id.activity_signUp_phoneEd);
         emailEd = findViewById(R.id.activity_signUp_emailEd);
         passwordEd = findViewById(R.id.activity_signUp_passwordEd);
@@ -62,6 +64,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
        // int conteactId = Integer.parseInt(contactIdEd.getText().toString().trim());
 
         String name = nameEd.getText().toString().trim();
+        String lastName = lastNameEd.getText().toString().trim();
         String phone = phoneEd.getText().toString().trim();
         String email = emailEd.getText().toString().trim();
         String password = passwordEd.getText().toString().trim();
@@ -69,7 +72,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         if (TextUtils.isEmpty(name)) {
             nameEd.setError("Please enter name");
-        } else if (TextUtils.isEmpty(phone)) {
+        }else if (TextUtils.isEmpty(lastName)) {
+            lastNameEd.setError("please enter lastName");
+        }  else if (TextUtils.isEmpty(phone)) {
             phoneEd.setError("please enter phoneNo");
         } else if (TextUtils.isEmpty(email)) {
             emailEd.setError("please enter email");
@@ -83,11 +88,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             ContactDbHelper contactDbHelper = new ContactDbHelper(this);
             sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-            contactDbHelper.insertContact(new ContactModel(name ,phone, email,password), sqLiteDatabase);
+            contactDbHelper.insertContact(new ContactModel(name,lastName,phone,email,password), sqLiteDatabase);
 
 
             contactDbHelper.close();
             nameEd.setText("");
+            lastNameEd.setText("");
             phoneEd.setText("");
             emailEd.setText("");
             passwordEd.setText("");

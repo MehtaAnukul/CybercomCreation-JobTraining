@@ -49,6 +49,15 @@
                     android:inputType="text"
                     android:textAlignment="center"
                     android:textAppearance="?android:textAppearanceMedium" />
+                <EditText
+                    android:id="@+id/activity_signUp_lastNameEd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lastName"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
 
                 <EditText
                     android:id="@+id/activity_signUp_phoneEd"
@@ -56,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/phone"
                     android:inputType="number"
+                    android:maxLength="10"
                     android:textAlignment="center"
                     android:textAppearance="?android:textAppearanceMedium" />
 

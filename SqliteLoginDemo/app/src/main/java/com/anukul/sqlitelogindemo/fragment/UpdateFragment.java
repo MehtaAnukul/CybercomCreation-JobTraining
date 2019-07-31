@@ -24,6 +24,7 @@ import com.anukul.sqlitelogindemo.R;
 public class UpdateFragment extends Fragment implements View.OnClickListener {
     private EditText updateContactId ;
     private EditText updateNameEd;
+    private EditText updateLastNameEd;
     private EditText updateEmailEd;
     private EditText updatePhoneNoEd;
     private Button updateBtn;
@@ -49,6 +50,7 @@ public class UpdateFragment extends Fragment implements View.OnClickListener {
 
         updateContactId  = view.findViewById(R.id.fragment_update_contactEd);
         updateNameEd = view.findViewById(R.id.fragment_update_nameEd);
+        updateLastNameEd = view.findViewById(R.id.fragment_update_lastNameEd);
         updateEmailEd = view.findViewById(R.id.fragment_update_emailEd);
         updatePhoneNoEd = view.findViewById(R.id.fragment_update_phoneNoEd);
         updateBtn = view.findViewById(R.id.fragment_update_updateBtn);
@@ -68,18 +70,20 @@ public class UpdateFragment extends Fragment implements View.OnClickListener {
     private void updateContact() {
         int id = Integer.parseInt(updateContactId.getText().toString().trim());
         String name = updateNameEd.getText().toString().trim();
+        String lastName = updateLastNameEd.getText().toString().trim();
         String email = updateEmailEd.getText().toString().trim();
         String phoneNo = updatePhoneNoEd.getText().toString().trim();
 
         ContactDbHelper contactDbHelper = new ContactDbHelper(getActivity());
         sqLiteDatabase = contactDbHelper.getWritableDatabase();
 
-        contactDbHelper.updateContacts(new ContactModel(id,name,phoneNo,email),id);
+        contactDbHelper.updateContacts(new ContactModel(id,name,lastName,phoneNo,email),id);
         contactDbHelper.close();
 
         Toast.makeText(getActivity(), "Contact Updated", Toast.LENGTH_SHORT).show();
         updateContactId.setText("");
         updateNameEd.setText("");
+        updateLastNameEd.setText("");
         updateEmailEd.setText("");
         updatePhoneNoEd.setText("");
     }
