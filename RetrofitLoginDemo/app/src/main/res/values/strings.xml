@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">RetrofitLoginDemo</string>
+
+    <string name="SignUp">SignUp</string>
+    <string name="Name">Name</string>
+    <string name="Email">Email</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+    <string name="Adventure">Adventure</string>
+    <string name="Gym">Gym</string>
+    <string name="Dance">Dance</string>
+    <string name="Signing">Signing</string>
+    <string name="password">Password</string>
+    <string name="signUpBtn">SignUp</string>
+    <string name="Already">Already have account ? Log In</string>
+    <string name="Login">Login</string>
+    <string name="LoginBtn">Login</string>
+    <string name="Donot">Don\'t have account ? SignUp</string>
+</resources>
