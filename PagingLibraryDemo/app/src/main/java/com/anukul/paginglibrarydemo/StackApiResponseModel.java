@@ -1,8 +1,9 @@
 package com.anukul.paginglibrarydemo;
 
+
 import java.util.List;
 
-class Owner{
+class OwnerModel {
     public int reputation;
     public long user_id;
     public String user_type;
@@ -11,8 +12,8 @@ class Owner{
     public String link;
 
 }
-class Item{
-    public Owner owner;
+class ItemModel {
+    public OwnerModel owner;
     public boolean is_accepted;
     public int score;
     public long last_activity_date;
@@ -23,8 +24,8 @@ class Item{
 
 }
 
-public class StackApiResponse {
-    public List<Item> items;
+public class StackApiResponseModel {
+    public List<ItemModel> items; 
     public boolean has_more;
     public int quota_max;
     public int quota_remaining;
