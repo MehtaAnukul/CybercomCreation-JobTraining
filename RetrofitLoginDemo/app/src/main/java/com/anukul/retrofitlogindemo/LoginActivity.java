@@ -38,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = loginEmailEd.getText().toString();
-                String password = loginPasswordEd.getText().toString();
+                String mUsername = loginEmailEd.getText().toString();
+                String mPassword = loginPasswordEd.getText().toString();
 
                /* if(username.isEmpty()){
                     loginEmailEd.setError("Email is required");
@@ -62,25 +62,26 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }*/
                 //validate form
-                if(validateLogin(username, password)){
+                if(validateLogin(mUsername, mPassword)){
                     //do login
-                    doLogin(username, password);
+                    doLogin(mUsername, mPassword);
                 }
             }
         });
 
     }
 
-    private void doLogin(final String username, final String password) {
-        Call<LoginModel> call = userService.login(username,password);
+    private void doLogin(final String mUsername, final String mPassword) {
+        Call<LoginModel> call = userService.login(mUsername,mPassword);
         call.enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
 
+                LoginModel loginModel = response.body();
 
-                if(response.isSuccessful()){
+                if (mUsername.equals(loginModel.getUsername()) || mPassword.equals(loginModel.getPassword())) {
                     Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
