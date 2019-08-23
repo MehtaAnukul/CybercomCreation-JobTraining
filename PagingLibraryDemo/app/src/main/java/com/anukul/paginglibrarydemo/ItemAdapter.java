@@ -1,5 +1,6 @@
 package com.anukul.paginglibrarydemo;
 
+import android.annotation.SuppressLint;
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -66,6 +67,7 @@ public class ItemAdapter extends PagedListAdapter<ItemModel,ItemAdapter.ItemView
                     return oldItemModel.answer_id == newItemModel.answer_id;
                 }
 
+                @SuppressLint("DiffUtilEquals")
                 @Override
                 public boolean areContentsTheSame(@NonNull ItemModel oldItemModel, @NonNull ItemModel newItemModel) {
                     return oldItemModel.equals(newItemModel);
