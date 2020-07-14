@@ -1,3 +1,4 @@
+/*
 package com.anukul.mellofood.adapter;
 
 import android.os.Bundle;
@@ -26,3 +27,4 @@ public class ProductCustomFragmentAdapter extends FragmentStatePagerAdapter {
         return 10;
     }
 }
+*/

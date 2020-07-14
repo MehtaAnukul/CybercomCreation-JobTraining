@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/drawer_menu_add_deparment"
+        android:title="Add Department"
+        />
+    <item
+        android:id="@+id/drawer_menu_add_employe"
+        android:title="Add Employee"
+        />
+    <item
+        android:id="@+id/drawer_menu_emp_details"
+        android:title="Employee Details"
+        />
+
+
+    </group>
+</menu>

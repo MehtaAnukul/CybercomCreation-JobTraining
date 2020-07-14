@@ -2,7 +2,6 @@ package com.anukul.paginglibrarydemo;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;

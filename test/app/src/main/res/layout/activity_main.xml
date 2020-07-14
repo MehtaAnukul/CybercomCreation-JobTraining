@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" layout_height="match_parent"
+    layout_width="match_parent">
+
+    <LinearLayout
+        layout_width="match_parent"
+        layout_height="wrap_content"
+        orientation="vertical">
+    <include layout="@layout/activity_toolbar_layout"/>
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        id="@+id/navigation_View"
+        layout_height="wrap_content"
+        layout_width="match_parent"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
