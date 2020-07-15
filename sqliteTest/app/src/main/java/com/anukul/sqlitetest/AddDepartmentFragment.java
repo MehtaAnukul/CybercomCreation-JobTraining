@@ -83,9 +83,6 @@ public class AddDepartmentFragment extends Fragment implements View.OnClickListe
             empDepartmentEd.setText("");
             Toast.makeText(getActivity(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 
-
-
-
         }
     }
 }

@@ -2,9 +2,12 @@ package com.anukul.sqlitetest;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
 
@@ -38,6 +41,26 @@ public class EmloyeeDbHelper extends SQLiteOpenHelper {
 
 
         return sqLiteDatabase.insert(EmployeeDbConstant.EMPLOYEE_TABLE_NAME, null, cv);
+
+    }
+
+    //read data
+    public ArrayList<EmployeeModel> getAllUser() {
+
+        ArrayList<EmployeeModel> employeeModelArrayList = new ArrayList<>();
+        String selectUserQuery = "SELECT * FROM " + EmployeeDbConstant.EMPLOYEE_TABLE_NAME;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(selectUserQuery,null);
+
+        while (cursor.moveToNext()){
+            EmployeeModel employeeModel = new EmployeeModel();
+            employeeModel.setId(cursor.getInt(cursor.getColumnIndex(EmployeeDbConstant.EMPLOYEE_ID)));
+            employeeModel.setDepartmentName(cursor.getString(cursor.getColumnIndex(EmployeeDbConstant.EMPLOYEE_DEPARTMENT)));
+            employeeModel.setEmployeeName(cursor.getString(cursor.getColumnIndex(EmployeeDbConstant.EMPLOYEE_NAME)));
+
+            employeeModelArrayList.add(employeeModel);
+        }
+        return employeeModelArrayList;
 
     }
 }

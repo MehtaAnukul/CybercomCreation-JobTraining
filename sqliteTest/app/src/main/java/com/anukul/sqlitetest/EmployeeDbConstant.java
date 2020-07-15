@@ -12,8 +12,8 @@ public class EmployeeDbConstant {
 
     public static final String CREATE_CONTACT_TABLE =
             "CREATE TABLE " + EMPLOYEE_TABLE_NAME + "("
-            + EMPLOYEE_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + EMPLOYEE_NAME + " TEXT, "
-            + EMPLOYEE_DEPARTMENT + " TEXT, "
+            + EMPLOYEE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + EMPLOYEE_NAME + " TEXT,"
+            + EMPLOYEE_DEPARTMENT + " TEXT,"
             + ")";
 }

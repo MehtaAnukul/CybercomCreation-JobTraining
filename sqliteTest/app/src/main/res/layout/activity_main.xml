@@ -16,6 +16,13 @@
 
         <include layout="@layout/toolbar_layout" />
 
+        <FrameLayout
+            android:id="@+id/activity_main_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
