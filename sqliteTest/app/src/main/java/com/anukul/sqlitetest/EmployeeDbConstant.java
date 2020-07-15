@@ -6,8 +6,8 @@ public class EmployeeDbConstant {
 
     public static final String EMPLOYEE_TABLE_NAME = "emp_info";
     public static final String EMPLOYEE_ID = "emp_id";
-    public static final String EMPLOYEE_NAME = "name";
-    public static final String EMPLOYEE_DEPARTMENT = "name";
+    public static final String EMPLOYEE_NAME = "emp_name";
+    public static final String EMPLOYEE_DEPARTMENT = "emp_department";
     //public static final String EMPLOYEE_NAME = "name";
 
     public static final String CREATE_CONTACT_TABLE =

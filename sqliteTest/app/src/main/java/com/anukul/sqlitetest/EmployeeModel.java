@@ -1,40 +1,49 @@
 package com.anukul.sqlitetest;
 
 public class EmployeeModel {
-    private String addDepartment;
-    private String addEmployee;
-    private String employeeDetails;
+    private int id;
+    private String departmentName;
+    private String employeeName;
 
-    public EmployeeModel(String addDepartment, String addEmployee, String employeeDetails) {
-        this.addDepartment = addDepartment;
-        this.addEmployee = addEmployee;
-        this.employeeDetails = employeeDetails;
+    public EmployeeModel(int id, String departmentName, String employeeName) {
+        this.id = id;
+        this.departmentName = departmentName;
+        this.employeeName = employeeName;
     }
 
     public EmployeeModel() {
     }
 
-    public String getAddDepartment() {
-        return addDepartment;
+    public EmployeeModel(String departmentName, String employeeName) {
+        this.departmentName = departmentName;
+        this.employeeName = employeeName;
     }
 
-    public void setAddDepartment(String addDepartment) {
-        this.addDepartment = addDepartment;
+    public EmployeeModel(String departmentName) {
+        this.departmentName = departmentName;
     }
 
-    public String getAddEmployee() {
-        return addEmployee;
+    public int getId() {
+        return id;
     }
 
-    public void setAddEmployee(String addEmployee) {
-        this.addEmployee = addEmployee;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getEmployeeDetails() {
-        return employeeDetails;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setEmployeeDetails(String employeeDetails) {
-        this.employeeDetails = employeeDetails;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 }
