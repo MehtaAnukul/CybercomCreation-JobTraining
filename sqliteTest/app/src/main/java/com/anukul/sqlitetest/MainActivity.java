@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toolbar = findViewById(R.id.toolbar_layout_toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         EmloyeeDbHelper emloyeeDbHelper = new EmloyeeDbHelper(MainActivity.this);
         employeeModelArrayList = emloyeeDbHelper.getAllUser();
 

@@ -78,10 +78,10 @@ public class AddDepartmentFragment extends Fragment implements View.OnClickListe
             Toast.makeText(getActivity(), "" + departmentName  , Toast.LENGTH_SHORT).show();
             Log.e("Data", departmentName);
 
-            for (int i = 0; i < 2; i++) {
-                emloyeeDbHelper.insertEmpData(new EmployeeModel(departmentName),
+
+            emloyeeDbHelper.insertEmpData(new EmployeeModel(departmentName),
                         sqLiteDatabase);
-            }
+
             emloyeeDbHelper.close();
             //empIdEd.setText("");
             empDepartmentEd.setText("");
