@@ -14,6 +14,6 @@ public class EmployeeDbConstant {
             "CREATE TABLE " + EMPLOYEE_TABLE_NAME + "("
             + EMPLOYEE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + EMPLOYEE_NAME + " TEXT,"
-            + EMPLOYEE_DEPARTMENT + " TEXT,"
+            + EMPLOYEE_DEPARTMENT + " TEXT"
             + ")";
 }

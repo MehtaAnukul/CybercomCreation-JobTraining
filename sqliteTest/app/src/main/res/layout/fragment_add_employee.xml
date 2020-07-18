@@ -16,6 +16,7 @@
             android:layout_centerInParent="true">
 
             <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/fragment_sqlite_departmentSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/department_name"/>

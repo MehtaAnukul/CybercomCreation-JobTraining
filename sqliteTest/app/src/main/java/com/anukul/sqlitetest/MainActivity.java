@@ -79,7 +79,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.drawer_menu_emp_details:
                 menuItem.setChecked(true);
-
+                AddEmployeeFragment addEmployeeFragmenttt = new AddEmployeeFragment();
+                AddDepartmentFragment addDepartmentFragmenttt = new AddDepartmentFragment();
+                EmployeeDetailsFragment employeeDetailsFragment = new EmployeeDetailsFragment();
+                FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
+                fragmentTransaction2.replace(R.id.activity_main_fragment_container,employeeDetailsFragment ,MainActivity.class.getSimpleName());
+                fragmentTransaction2.hide(addDepartmentFragmenttt);
+                fragmentTransaction2.hide(addEmployeeFragmenttt);
+                fragmentTransaction2.commit();
                 displayMessage("Employee Details");
                 drawerLayout.closeDrawers();
                 break;

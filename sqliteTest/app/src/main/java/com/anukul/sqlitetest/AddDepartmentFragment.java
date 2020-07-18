@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,12 +75,15 @@ public class AddDepartmentFragment extends Fragment implements View.OnClickListe
             EmloyeeDbHelper emloyeeDbHelper = new EmloyeeDbHelper(getActivity());
             sqLiteDatabase = emloyeeDbHelper.getWritableDatabase();
 
-            for (int i = 0; i < 10; i++) {
+            Toast.makeText(getActivity(), "" + departmentName  , Toast.LENGTH_SHORT).show();
+            Log.e("Data", departmentName);
+
+            for (int i = 0; i < 2; i++) {
                 emloyeeDbHelper.insertEmpData(new EmployeeModel(departmentName),
                         sqLiteDatabase);
             }
             emloyeeDbHelper.close();
-            empIdEd.setText("");
+            //empIdEd.setText("");
             empDepartmentEd.setText("");
             Toast.makeText(getActivity(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 

@@ -23,6 +23,7 @@ public class EmployeeModel {
         this.departmentName = departmentName;
     }
 
+
     public int getId() {
         return id;
     }
