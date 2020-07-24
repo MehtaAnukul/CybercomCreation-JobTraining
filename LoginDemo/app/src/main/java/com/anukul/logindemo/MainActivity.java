@@ -31,9 +31,8 @@ public class MainActivity extends AppCompatActivity implements CallbackFragment{
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         //fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.activity_main_containerFramLayout,loginFragment);
         fragmentTransaction.hide(signUpFragment);
-        fragmentTransaction.add(R.id.activity_main_containerFramLayout,loginFragment);
-
         fragmentTransaction.commit();
     }
 
