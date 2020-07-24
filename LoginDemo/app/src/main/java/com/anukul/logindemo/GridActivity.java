@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.anukul.logindemo.model.GridModel;
+import com.anukul.logindemo.model.ImageModel;
 import com.anukul.logindemo.network.ApiClient;
 
 import java.util.List;
@@ -27,11 +27,11 @@ public class GridActivity extends AppCompatActivity {
         gridView = findViewById(R.id.activity_grid_gridView);
 
         //make network call
-        Call<List<GridModel>> call = ApiClient.apiInterface().getGridModel();
+        Call<List<ImageModel>> call = ApiClient.apiInterface().getImageModel();
 
-        call.enqueue(new Callback<List<GridModel>>() {
+        call.enqueue(new Callback<List<ImageModel>>() {
             @Override
-            public void onResponse(Call<List<GridModel>> call, Response<List<GridModel>> response) {
+            public void onResponse(Call<List<ImageModel>> call, Response<List<ImageModel>> response) {
                 if(response.isSuccessful()){
                     gridAdapter = new GridAdapter(response.body(),GridActivity.this);
 
@@ -42,7 +42,7 @@ public class GridActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<GridModel>> call, Throwable t) {
+            public void onFailure(Call<List<ImageModel>> call, Throwable t) {
                 Toast.makeText(GridActivity.this, "Something want wrong", Toast.LENGTH_SHORT).show();
             }
         });

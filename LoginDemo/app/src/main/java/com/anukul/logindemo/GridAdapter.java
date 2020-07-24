@@ -8,24 +8,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.anukul.logindemo.model.GridModel;
+import com.anukul.logindemo.model.ImageModel;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 public class GridAdapter extends BaseAdapter {
 
-    public List<GridModel> gridModelList;
+    public List<ImageModel> imageModelList;
     public Context context;
 
-    public GridAdapter(List<GridModel> gridModelList, Context context) {
-        this.gridModelList = gridModelList;
+    public GridAdapter(List<ImageModel> imageModelList, Context context) {
+        this.imageModelList = imageModelList;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return gridModelList.size();
+        return imageModelList.size();
     }
 
     @Override
@@ -40,14 +40,14 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.custom_layout,null);
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_layout,parent,false);
 
         //find View
         ImageView imageView = view.findViewById(R.id.custom_layout_Img);
 
         //set data
         Glide.with(context)
-                .load(gridModelList.get(position).getUrl())
+                .load(imageModelList.get(position).getImages())
                 .into(imageView);
 
         return view;
