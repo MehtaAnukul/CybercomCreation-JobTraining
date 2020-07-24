@@ -1,16 +1,16 @@
-package com.anukul.logindemo;
+package com.anukul.logindemo.model;
 
 import java.util.List;
 
-public class LoginModel {
+public class GridModel {
 
 
-    private int id;
-    private String url;
-    private String large_url;
-    private String source_id;
+    public int id;
+    public String url;
+    public String large_url;
+    public String source_id;
 
-    public LoginModel(int id, String url, String large_url, String source_id) {
+    public GridModel(int id, String url, String large_url, String source_id) {
         this.id = id;
         this.url = url;
         this.large_url = large_url;

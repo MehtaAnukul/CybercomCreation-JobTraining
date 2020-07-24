@@ -1,6 +1,7 @@
 package com.anukul.logindemo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
@@ -80,6 +81,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     }
 
     private void loginProcess() {
+
         email = emailEd.getText().toString().trim();
         pasword = passwordEd.getText().toString().trim();
 
@@ -94,6 +96,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             Toast.makeText(getContext(), "Please enter the Details", Toast.LENGTH_SHORT).show();
         }else {
             if(email.equals(userEmail) && pasword.equals(userPassword)){
+                Intent intent = new Intent(getActivity(),GridActivity.class);
+                startActivity(intent);
                 Toast.makeText(getContext(), "Login Successfully", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(getContext(), "something want wrong", Toast.LENGTH_SHORT).show();
@@ -101,6 +105,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         }
         emailEd.setText("");
         passwordEd.setText("");
+
+
 
 
     }
