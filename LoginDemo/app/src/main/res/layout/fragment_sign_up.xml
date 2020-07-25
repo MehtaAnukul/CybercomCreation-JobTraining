@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SignUpFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -73,22 +74,29 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 />
-            <EditText
-                android:id="@+id/signup_fragment_passwordEd"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                android:textSize="13dp"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawableEnd="@drawable/ic_eye"
-                android:drawablePadding="15dp"
-                android:inputType="textPassword"
-                android:background="@drawable/email_bg"
-                android:padding="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                app:passwordToggleEnabled="true"
                 android:layout_marginTop="10dp">
-            </EditText>
+                <EditText
+                    android:id="@+id/signup_fragment_passwordEd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:textSize="13dp"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawableEnd="@drawable/ic_eye"
+                    android:drawablePadding="15dp"
+                    android:inputType="textPassword"
+                    android:background="@drawable/email_bg"
+                    android:padding="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp">
+                </EditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 
             <CheckBox
