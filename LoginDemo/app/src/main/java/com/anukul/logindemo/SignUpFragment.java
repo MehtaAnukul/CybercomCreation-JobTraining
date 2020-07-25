@@ -25,7 +25,17 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
     private EditText passwordEd;
     private Button signUpBtn;
     private TextView loginTV;
+
     String userName,email,password,phoneNo;
+    /*String passwordVal = "^" +
+            //"(?=.*[0-9])" +         //at least 1 digit
+            //"(?=.*[a-z])" +         //at least 1 lower case letter
+            //"(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=.*[a-zA-Z])" +      //any letter
+            "(?=.*[@#$%^&+=])" +    //at least 1 special character
+            "(?=\\S+$)" +           //no white spaces
+            ".{4,}" +               //at least 4 characters
+            "$";*/
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -82,11 +92,82 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    private void SignupProcess() {
+    private Boolean validateName(){
         userName = userNameEd.getText().toString().trim();
+        if(userName.isEmpty()){
+            userNameEd.setError("Field cannot be empty");
+            return false;
+        }else {
+            userNameEd.setError(null);
+            userNameEd.setEnabled(false);
+            return true;
+        }
+    }
+    private Boolean validateEmail() {
+        email = emailEd.getText().toString().trim();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (email.isEmpty()) {
+            emailEd.setError("Field cannot be empty");
+            return false;
+        } else if (!email.matches(emailPattern)) {
+            emailEd.setError("Invalid email address");
+            return false;
+        } else {
+            emailEd.setError(null);
+            emailEd.setEnabled(false);
+            return true;
+        }
+    }
+    private Boolean validatePhoneNo() {
+        phoneNo = phoneNoEd.getText().toString().trim();
+
+        if (phoneNo.isEmpty()) {
+            phoneNoEd.setError("Field cannot be empty");
+            return false;
+        } else {
+            phoneNoEd.setError(null);
+            phoneNoEd.setEnabled(false);
+            return true;
+        }
+    }
+    private Boolean validatePassword() {
+        password = passwordEd.getText().toString().trim();
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if (password.isEmpty()) {
+            passwordEd.setError("Field cannot be empty");
+            return false;
+        } else if (!password.matches(passwordVal)) {
+            passwordEd.setError("Password is too weak");
+            return false;
+        } else {
+            passwordEd.setError(null);
+            passwordEd.setEnabled(false);
+            return true;
+        }
+    }
+
+
+    private void SignupProcess() {
+        /*userName = userNameEd.getText().toString().trim();
         email = emailEd.getText().toString().trim();
         phoneNo = phoneNoEd.getText().toString().trim();
-        password = passwordEd.getText().toString().trim();
+        password = passwordEd.getText().toString().trim();*/
+
+        if(!validateName() | !validatePassword() | !validatePhoneNo() | !validateEmail()){
+            return;
+        }else {
+            Toast.makeText(getContext(), "SignUp Successfully", Toast.LENGTH_SHORT).show();
+        }
 
         editor.putString("userName",userName);
         editor.putString("email",email);
@@ -94,17 +175,15 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
         editor.putString("password",password);
         editor.apply();
 
-        if(userName.isEmpty() || email.isEmpty() || phoneNo.isEmpty() || password.isEmpty()){
+        /*if(userName.isEmpty() || email.isEmpty() || phoneNo.isEmpty() || password.isEmpty()){
             Toast.makeText(getContext(), "Please enter the Details", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(getContext(), "SignUp Successfully", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         userNameEd.setText("");
         emailEd.setText("");
         phoneNoEd.setText("");
         passwordEd.setText("");
-
-
     }
 
     public void setCallbackFragment(CallbackFragment callbackFragment) {

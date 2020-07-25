@@ -27,7 +27,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private EditText passwordEd;
     private Button loginBtn;
     private TextView signupTV;
-    String email,pasword;
+    String email,password;
+
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -80,33 +81,67 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    private void loginProcess() {
-
+    private Boolean validateEmail() {
         email = emailEd.getText().toString().trim();
-        pasword = passwordEd.getText().toString().trim();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+        if (email.isEmpty()) {
+            emailEd.setError("Field cannot be empty");
+            return false;
+        } else if (!email.matches(emailPattern)) {
+            emailEd.setError("Invalid email address");
+            return false;
+        } else {
+            emailEd.setError(null);
+            //emailEd.setEnabled(false);
+            return true;
+        }
+    }
+    private Boolean validatePassword() {
+        password = passwordEd.getText().toString().trim();
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+                "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                "(?=\\S+$)" +           //no white spaces
+                ".{4,}" +               //at least 4 characters
+                "$";
+
+        if (password.isEmpty()) {
+            passwordEd.setError("Field cannot be empty");
+            return false;
+        } else if (!password.matches(passwordVal)) {
+            passwordEd.setError("Password is too weak");
+            return false;
+        } else {
+            passwordEd.setError(null);
+            //passwordEd.setEnabled(false);
+            return true;
+        }
+    }
+
+    private void loginProcess() {
 
         String userEmail,userPassword;
         userEmail = sharedPreferences.getString("email",null);
         userPassword = sharedPreferences.getString("password",null);
 
-
-
-        if(email.isEmpty() || pasword.isEmpty()){
-            Toast.makeText(getContext(), "Please enter the Details", Toast.LENGTH_SHORT).show();
-        }else {
-            if(email.equals(userEmail) && pasword.equals(userPassword)){
+        if( !validateEmail() | !validatePassword() ){
+            return;
+        }
+        else {
+            if(email.equals(userEmail) && password.equals(userPassword)){
                 Intent intent = new Intent(getActivity(),GridActivity.class);
                 startActivity(intent);
                 Toast.makeText(getContext(), "Login Successfully", Toast.LENGTH_SHORT).show();
+                emailEd.setText("");
+                passwordEd.setText("");
             }else {
-                Toast.makeText(getContext(), "something want wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Email & password wrong", Toast.LENGTH_SHORT).show();
             }
         }
-        emailEd.setText("");
-        passwordEd.setText("");
-
-
 
 
     }
